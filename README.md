@@ -28,8 +28,9 @@ For larger-scale systems, a time-series database would be considered for handlin
 The frontend was built using HTML and JavaScript to create a lightweight dashboard that is easy to run and sufficient for demonstrating the required monitoring features.
 
 Architecture diagram:
-- `diagrams/software-architecture/software_architecture.png`
-- Source: `diagrams/software-architecture/software_architecture.drawio`
+![Architecture Diagram](diagrams/software-architecture/software_architecture.png)
+
+- Source file: [software_architecture.drawio](diagrams/software-architecture/software_architecture.drawio)
 
 ---
 
@@ -50,10 +51,16 @@ The IP addresses, BACnet device IDs, and Modbus slave IDs shown in these diagram
 They are included for clarity only and are not tied to the actual software configuration.
 
 Network diagrams:
-- `diagrams/network/system_overview_network.png`
-- `diagrams/network/bacnet_network.png`
-- `diagrams/network/modbus_network.png`
-- Source files are included as `.drawio` in the same folders.
+![System Overview](diagrams/network/system_overview_network.png)
+
+- System Overview: [system_overview_network.png](diagrams/network/system_overview_network.png)
+- BACnet Network: [bacnet_network.png](diagrams/network/bacnet_network.png)
+- Modbus Network: [modbus_network.png](diagrams/network/modbus_network.png)
+
+- Source files:
+  - [system_overview_network.drawio](diagrams/network/system_overview_network.drawio)
+  - [bacnet_network.drawio](diagrams/network/bacnet_network.drawio)
+  - [modbus_network.drawio](diagrams/network/modbus_network.drawio)
 
 ---
 
@@ -193,6 +200,8 @@ docker compose up -d
 ### 3. Access the System
 - Dashboard: http://localhost:8000/dashboard
 - Node-RED: http://localhost:1880
+- Database (pgAdmin): http://localhost:5050  
+  (login credentials are defined in docker-compose.yml)
 ### 4. Stop the System (Optional)
 ```bash
 docker compose down
@@ -427,7 +436,7 @@ Key relationships used in the model include:
 - `brick:hasSubMeter` and `brick:meters` for metering structure
 
 File:
-- `brick/building_model.ttl`
+- [building_model.ttl](brick/building_model.ttl)
 
 ---
 
