@@ -183,7 +183,7 @@ No manual trigger is required.
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/<your-github-username>/smart-building-sim.git
+git clone https://github.com/Touch1997/smart-building-sim.git
 cd smart-building-sim
 ```
 ### 2. Start the System
