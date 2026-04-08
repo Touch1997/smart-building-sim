@@ -1,0 +1,64 @@
+services:
+  nodered:
+    image: nodered/node-red
+    container_name: nodered
+    restart: unless-stopped
+    ports:
+      - "1880:1880"
+    volumes:
+      - ./node-red:/data
+    environment:
+      - TZ=Asia/Bangkok
+
+  mqtt:
+    image: eclipse-mosquitto
+    container_name: mqtt
+    restart: unless-stopped
+    ports:
+      - "1883:1883"
+    volumes:
+      - ./mosquitto.conf:/mosquitto/config/mosquitto.conf
+
+  postgres:
+    image: postgres:16
+    container_name: postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: iot
+      POSTGRES_PASSWORD: iot
+      POSTGRES_DB: iot
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    restart: unless-stopped
+    environment:
+      PGADMIN_DEFAULT_EMAIL: touch@test.com
+      PGADMIN_DEFAULT_PASSWORD: 12345
+    ports:
+      - "5050:80"
+    depends_on:
+      - postgres
+
+  backend:
+    image: python:3.11
+    container_name: backend
+    restart: unless-stopped
+    working_dir: /app
+    volumes:
+      - ./backend:/app
+    command: >
+      sh -c "pip install --no-cache-dir -r requirements.txt &&
+             uvicorn main:app --host 0.0.0.0 --port 8000 --reload"
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mqtt
+      - postgres
+
+volumes:
+  postgres_data:

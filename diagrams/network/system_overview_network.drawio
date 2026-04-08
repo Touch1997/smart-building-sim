@@ -1,0 +1,91 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="TMUZ7P09r6nS8OU9D8gq">
+    <mxGraphModel dx="2175" dy="1195" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="kKMMps9GIU_p9-2Uxnd1-1" connectable="0" parent="1" style="group" value="" vertex="1">
+          <mxGeometry height="250" width="202" x="90" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="kKMMps9GIU_p9-2Uxnd1-2" parent="kKMMps9GIU_p9-2Uxnd1-1" style="text;whiteSpace=wrap;strokeColor=default;strokeWidth=3;fontSize=16;" value="Chillers&#xa;CHW Pumps&#xa;CDW Pumps&#xa;Cooling Towers&#xa;---------------------------&#xa;Floor 1–4&#xa;- AHU&#xa;- VAV&#xa;- IAQ Sensors" vertex="1">
+          <mxGeometry height="191.15" width="157.9" x="2.1" y="28.85" as="geometry" />
+        </mxCell>
+        <mxCell id="kKMMps9GIU_p9-2Uxnd1-4" connectable="0" parent="1" style="group" value="" vertex="1">
+          <mxGeometry height="250" width="390" x="430" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="kKMMps9GIU_p9-2Uxnd1-5" parent="kKMMps9GIU_p9-2Uxnd1-4" style="text;whiteSpace=wrap;strokeColor=default;strokeWidth=3;fontSize=16;" value="Main Building Meter (Modbus TCP)&#xa;------------------------------------------------------&#xa;Sub-Meters (Modbus RTU)&#xa;- Floor Meters&#xa;- AHU Meters&#xa;- Chiller Meters&#xa;- Pump Meters&#xa;- Cooling Tower Meters&#xa;------------------------------------------------------&#xa;Outdoor Weather Station (Modbus RTU)" vertex="1">
+          <mxGeometry height="221.15" width="327.3" x="2.7" y="28.85" as="geometry" />
+        </mxCell>
+        <mxCell id="kKMMps9GIU_p9-2Uxnd1-6" parent="kKMMps9GIU_p9-2Uxnd1-4" style="text;whiteSpace=wrap;html=1;fontStyle=5" value="&lt;span style=&quot;font-size: 16px;&quot;&gt;Electrical Metering &amp;amp; Environmental Sensors&lt;/span&gt;" vertex="1">
+          <mxGeometry height="38.46" width="390" as="geometry" />
+        </mxCell>
+        <mxCell id="kKMMps9GIU_p9-2Uxnd1-3" parent="1" style="text;whiteSpace=wrap;html=1;fontStyle=5" value="&lt;span style=&quot;font-size: 16px;&quot;&gt;BACnet HVAC System&lt;/span&gt;" vertex="1">
+          <mxGeometry height="38.46153846153846" width="178.85416666666666" x="90" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="kKMMps9GIU_p9-2Uxnd1-8" parent="1" style="text;whiteSpace=wrap;html=1;fontSize=18;fontStyle=1;container=0;" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Helvetica; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(236, 236, 236); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline !important;&quot;&gt;Edge Computing Gateway&lt;/span&gt;" vertex="1">
+          <mxGeometry height="24.89" width="318.33" x="64.17" y="680" as="geometry" />
+        </mxCell>
+        <mxCell id="kKMMps9GIU_p9-2Uxnd1-9" connectable="0" parent="1" style="group;strokeWidth=3;strokeColor=default;fontSize=13;container=0;" value="" vertex="1">
+          <mxGeometry height="261.33333333333337" width="465" x="150" y="718.6666666666666" as="geometry" />
+        </mxCell>
+        <mxCell id="kKMMps9GIU_p9-2Uxnd1-10" parent="1" style="text;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=13;fontStyle=1;align=center;container=0;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Node-RED&amp;nbsp;&lt;br&gt;&lt;font&gt;IP:192.168.10.11&amp;nbsp;&lt;/font&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="30.153846153846157" width="195.3" x="284.85125000000005" y="930.0022222222221" as="geometry" />
+        </mxCell>
+        <mxCell id="kKMMps9GIU_p9-2Uxnd1-11" parent="1" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#7AA116;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=13;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.iot_device_gateway;container=0;" value="" vertex="1">
+          <mxGeometry height="159.38" width="170.3" x="212.20000000000005" y="760" as="geometry" />
+        </mxCell>
+        <mxCell id="kKMMps9GIU_p9-2Uxnd1-12" parent="1" style="text;whiteSpace=wrap;html=1;fontSize=16;container=0;fontStyle=1" value="- BACnet Client&lt;br&gt;- Modbus TCP Client&lt;br&gt;- Protocol Conversion&lt;br&gt;- Data Processing&lt;br&gt;- MQTT Publisher" vertex="1">
+          <mxGeometry height="79.63" width="179.5" x="410" y="799.88" as="geometry" />
+        </mxCell>
+        <mxCell id="kKMMps9GIU_p9-2Uxnd1-13" parent="1" style="image;html=1;image=img/lib/clip_art/networking/Switch_128x128.png;fontSize=13;container=0;" value="" vertex="1">
+          <mxGeometry height="112.22" width="190" x="268.85" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="kKMMps9GIU_p9-2Uxnd1-14" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontStyle=1;fontSize=16;container=0;" value="&lt;font&gt;Core Switch Hub&lt;/font&gt;&lt;div&gt;&lt;font&gt;IP:&amp;nbsp;192.168.10.10&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="18.846153846153847" width="137.175" x="477.82" y="509.9970085470085" as="geometry" />
+        </mxCell>
+        <mxCell id="kKMMps9GIU_p9-2Uxnd1-15" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;strokeWidth=5;fontSize=13;entryX=0.951;entryY=0.964;entryDx=0;entryDy=0;entryPerimeter=0;" target="kKMMps9GIU_p9-2Uxnd1-8" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="367" y="600" as="sourcePoint" />
+            <mxPoint x="370" y="710" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="kKMMps9GIU_p9-2Uxnd1-16" parent="1" style="text;whiteSpace=wrap;html=1;fontSize=16;fontStyle=1;container=0;" value="Ethernet (LAN)" vertex="1">
+          <mxGeometry height="18.67" width="147.5" x="382.5" y="620" as="geometry" />
+        </mxCell>
+        <mxCell id="kKMMps9GIU_p9-2Uxnd1-18" edge="1" parent="1" source="kKMMps9GIU_p9-2Uxnd1-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;strokeWidth=3;" target="kKMMps9GIU_p9-2Uxnd1-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="kKMMps9GIU_p9-2Uxnd1-19" edge="1" parent="1" source="kKMMps9GIU_p9-2Uxnd1-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=3;" target="kKMMps9GIU_p9-2Uxnd1-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="kKMMps9GIU_p9-2Uxnd1-21" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontStyle=1;fontSize=16;container=0;" value="BACnet/IP (UDP 47808)" vertex="1">
+          <mxGeometry height="18.85" width="220" x="64.85" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="kKMMps9GIU_p9-2Uxnd1-22" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontStyle=1;fontSize=16;container=0;" value="Modbus TCP (Port 502)" vertex="1">
+          <mxGeometry height="18.85" width="220" x="477.82" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="kKMMps9GIU_p9-2Uxnd1-23" parent="1" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;fontColor=#000000;darkOpacity=0.05;fillColor=#FFF9B2;strokeColor=none;fillStyle=solid;direction=west;gradientDirection=north;gradientColor=#FFF2A1;shadow=1;size=20;autosizeText=1;fontSize=11;align=left;" value="&lt;div&gt;&lt;div&gt;&lt;span&gt;This diagram shows the integrated building network for BACnet/IP HVAC systems, Modbus electrical meters, and outdoor environmental sensors.&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;Node-RED acts as the edge gateway for protocol integration, data processing, and MQTT publishing.&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;Note:&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;- BACnet device instances must be unique within the BACnet network.&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;- Modbus slave IDs must be unique per RS-485 segment.&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;- Duplicate Modbus slave IDs are allowed across different gateways.&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;- Outdoor sensors are integrated via RTU-TCP gateways.&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;- All IP-based devices are connected within the same subnet.&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;- All devices are within subnet: 192.168.10.0/24&lt;span&gt;&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="220" width="340" x="670" y="498.6700000000001" as="geometry" />
+        </mxCell>
+        <mxCell id="kKMMps9GIU_p9-2Uxnd1-24" connectable="0" parent="1" style="group" value="" vertex="1">
+          <mxGeometry height="208" width="213" x="774" y="750" as="geometry" />
+        </mxCell>
+        <mxCell id="kKMMps9GIU_p9-2Uxnd1-25" parent="kKMMps9GIU_p9-2Uxnd1-24" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#7AA116;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=20;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.mqtt_protocol;" value="" vertex="1">
+          <mxGeometry height="208" width="208" as="geometry" />
+        </mxCell>
+        <mxCell id="kKMMps9GIU_p9-2Uxnd1-26" parent="kKMMps9GIU_p9-2Uxnd1-24" style="text;whiteSpace=wrap;html=1;fontSize=20;fontStyle=1" value="&lt;span&gt;MQTT Broker&lt;/span&gt;&lt;br&gt;&lt;span&gt;IP: 192.168.10.12&lt;/span&gt;&lt;br&gt;&lt;span&gt;Port: 1883&lt;/span&gt;" vertex="1">
+          <mxGeometry height="96" width="192" x="21" y="32" as="geometry" />
+        </mxCell>
+        <mxCell id="kKMMps9GIU_p9-2Uxnd1-27" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;strokeWidth=7;exitX=0.464;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;fontSize=13;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="630" y="862" as="sourcePoint" />
+            <mxPoint x="726" y="862" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="kKMMps9GIU_p9-2Uxnd1-28" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontStyle=1;fontSize=20;" value="MQTT Protocol" vertex="1">
+          <mxGeometry height="30" width="234" x="580" y="824.69" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

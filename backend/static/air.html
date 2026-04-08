@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Air Distribution System</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f4f6f8;
+            color: #1f2937;
+        }
+
+        header {
+            background: #0f172a;
+            color: white;
+            padding: 20px 24px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        .navbar {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #0f172a;
+            background: white;
+            border: 1px solid #cbd5e1;
+            border-radius: 10px;
+            padding: 10px 16px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .navbar a:hover {
+            background: #e2e8f0;
+            border-color: #94a3b8;
+        }
+
+        .navbar a.active {
+            background: #0f172a;
+            color: white;
+            border-color: #0f172a;
+        }
+
+        .toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .muted {
+            color: #94a3b8;
+            font-size: 13px;
+        }
+
+        .selector {
+            padding: 10px 14px;
+            border-radius: 10px;
+            border: 1px solid #cbd5e1;
+            background: white;
+            min-width: 160px;
+        }
+
+        .selector-group {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .grid {
+            display: grid;
+            gap: 16px;
+        }
+
+        .kpi-grid {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            margin-bottom: 20px;
+        }
+
+        .air-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            margin-bottom: 20px;
+        }
+
+        .zone-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            margin-bottom: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 18px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .card h3 {
+            margin: 0 0 10px 0;
+            font-size: 16px;
+            color: #334155;
+        }
+
+        .value {
+            font-size: 28px;
+            font-weight: bold;
+            line-height: 1.2;
+        }
+
+        .subline {
+            font-size: 12px;
+            color: #64748b;
+            margin-top: 6px;
+        }
+
+        .section-title {
+            font-size: 22px;
+            margin: 24px 0 12px 0;
+            color: #0f172a;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        td {
+            padding: 8px 0;
+            border-bottom: 1px solid #e5e7eb;
+            vertical-align: top;
+        }
+
+        td:last-child {
+            text-align: right;
+            font-weight: bold;
+        }
+
+        .status-on {
+            color: #15803d;
+            font-weight: bold;
+        }
+
+        .status-off {
+            color: #64748b;
+            font-weight: bold;
+        }
+
+        .status-alarm {
+            color: #dc2626;
+            font-weight: bold;
+        }
+
+        .chart-card {
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 1100px) {
+            .kpi-grid,
+            .air-grid,
+            .zone-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 700px) {
+            .kpi-grid,
+            .air-grid,
+            .zone-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .selector {
+                width: 100%;
+            }
+
+            .selector-group {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Air Distribution System</h1>
+    </header>
+
+    <div class="container">
+        <div class="navbar" id="topNav">
+            <a href="/dashboard" data-path="/dashboard">Main</a>
+            <a href="/dashboard/chiller" data-path="/dashboard/chiller">Chiller</a>
+            <a href="/dashboard/air" data-path="/dashboard/air">Air</a>
+            <a href="/dashboard/electrical" data-path="/dashboard/electrical">Electrical</a>
+        </div>
+
+        <div class="toolbar">
+            <div class="muted">Time selector for air system analytics and trend</div>
+
+            <div class="selector-group">
+                <select id="timeRangeSelect" class="selector">
+                    <option value="1h">Last Hour</option>
+                    <option value="24h" selected>Last Day</option>
+                    <option value="7d">Last Week</option>
+                    <option value="30d">Last Month</option>
+                    <option value="365d">Last Year</option>
+                </select>
+
+                <select id="metricSelect" class="selector">
+                    <option value="power" selected>Trend: Power (kW)</option>
+                    <option value="air_flow">Trend: Air Flow (CFM)</option>
+                    <option value="efficiency">Trend: Efficiency (kW/CFM)</option>
+                </select>
+
+                <select id="zoneMetricSelect" class="selector">
+                    <option value="temp" selected>Zone Trend: Temperature</option>
+                    <option value="humidity">Zone Trend: Humidity</option>
+                    <option value="both">Zone Trend: Both</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="section-title">Air System Overview</div>
+        <div class="grid kpi-grid">
+            <div class="card">
+                <h3>Total Air Power</h3>
+                <div class="value" id="totalPower">-</div>
+                <div class="subline" id="latestUpdate">-</div>
+            </div>
+
+            <div class="card">
+                <h3>Total Air Flow</h3>
+                <div class="value" id="totalAirFlow">-</div>
+                <div class="subline">Sum of current airflow from AHU-1 to AHU-4</div>
+            </div>
+
+            <div class="card">
+                <h3>Avg Efficiency</h3>
+                <div class="value" id="avgEfficiency">-</div>
+                <div class="subline">Total power divided by total airflow</div>
+            </div>
+
+            <div class="card">
+                <h3>Air Energy Consumption</h3>
+                <div class="value" id="totalEnergy">-</div>
+                <div class="subline">Delta from AHU sub-meters over selected range</div>
+            </div>
+        </div>
+
+        <div class="section-title">AHU Status and Performance</div>
+        <div class="grid air-grid" id="ahuCards"></div>
+
+        <div class="section-title">Zone Environmental Averages</div>
+        <div class="grid zone-grid" id="zoneCards"></div>
+
+        <div class="section-title">Zone Temperature and Humidity Trend</div>
+        <div class="card chart-card">
+            <canvas id="zoneEnvChart" height="100"></canvas>
+        </div>
+
+        <div class="section-title">Air System Trend</div>
+        <div class="card chart-card">
+            <canvas id="airTrendChart" height="100"></canvas>
+        </div>
+    </div>
+
+    <script>
+        let airTrendChart = null;
+        let zoneEnvChart = null;
+
+        function setActiveNav() {
+            const currentPath = window.location.pathname;
+            document.querySelectorAll("#topNav a").forEach(link => {
+                if (link.dataset.path === currentPath) {
+                    link.classList.add("active");
+                } else {
+                    link.classList.remove("active");
+                }
+            });
+        }
+
+        function toDateSafe(ts) {
+            if (!ts) return null;
+            const d = new Date(ts);
+            if (!Number.isNaN(d.getTime())) return d;
+            return null;
+        }
+
+        function formatDateTimeTH(ts) {
+            const d = toDateSafe(ts);
+            if (!d) return "-";
+            return d.toLocaleString("th-TH", {
+                year: "numeric",
+                month: "2-digit",
+                day: "2-digit",
+                hour: "2-digit",
+                minute: "2-digit",
+                second: "2-digit"
+            });
+        }
+
+        function toChartLabelTH(ts) {
+            const d = toDateSafe(ts);
+            if (!d) return "-";
+            return d.toLocaleString("th-TH", {
+                month: "2-digit",
+                day: "2-digit",
+                hour: "2-digit",
+                minute: "2-digit"
+            });
+        }
+
+        async function fetchAirSummary(range) {
+            const res = await fetch(`/api/air/summary?range=${encodeURIComponent(range)}`);
+            if (!res.ok) throw new Error("Failed to fetch air summary");
+            return await res.json();
+        }
+
+        async function fetchAirTrend(range, metric) {
+            const res = await fetch(`/api/air/trend?range=${encodeURIComponent(range)}&metric=${encodeURIComponent(metric)}`);
+            if (!res.ok) throw new Error("Failed to fetch air trend");
+            return await res.json();
+        }
+
+        async function fetchZoneTrend(range) {
+            const res = await fetch(`/api/air/zone_trend?range=${encodeURIComponent(range)}`);
+            if (!res.ok) throw new Error("Failed to fetch zone trend");
+            return await res.json();
+        }
+
+        function formatNumber(val, digits = 2) {
+            if (val === null || val === undefined || Number.isNaN(Number(val))) return "-";
+            return Number(val).toFixed(digits);
+        }
+
+        function statusText(val) {
+            return Number(val) === 1 ? "ON" : "OFF";
+        }
+
+        function alarmText(val) {
+            return Number(val) === 1 ? "ALARM" : "OK";
+        }
+
+        function statusClass(val) {
+            return Number(val) === 1 ? "status-on" : "status-off";
+        }
+
+        function alarmClass(val) {
+            return Number(val) === 1 ? "status-alarm" : "status-on";
+        }
+
+        function renderSummary(data) {
+            document.getElementById("totalPower").textContent =
+                `${formatNumber(data.total_air_power)} kW`;
+
+            document.getElementById("totalAirFlow").textContent =
+                `${formatNumber(data.total_air_flow)} CFM`;
+
+            document.getElementById("avgEfficiency").textContent =
+                data.avg_air_efficiency !== null && data.avg_air_efficiency !== undefined
+                    ? `${formatNumber(data.avg_air_efficiency, 4)} kW/CFM`
+                    : "-";
+
+            document.getElementById("totalEnergy").textContent =
+                `${formatNumber(data.total_air_energy)} kWh`;
+
+            document.getElementById("latestUpdate").textContent =
+                data.latest_ts
+                    ? `Last update: ${formatDateTimeTH(data.latest_ts)}`
+                    : "-";
+        }
+
+        function renderAhus(ahus, energyByMeter) {
+            const container = document.getElementById("ahuCards");
+            container.innerHTML = "";
+
+            const orderedDevices = ["ahu_1", "ahu_2", "ahu_3", "ahu_4"];
+
+            orderedDevices.forEach((device, index) => {
+                const ahu = ahus[device] || {};
+                const meterName = `ahu_meter_${index + 1}`;
+                const meter = energyByMeter[meterName] || {};
+                const deltaT = ahu.delta_t;
+
+                const card = document.createElement("div");
+                card.className = "card";
+
+                card.innerHTML = `
+                    <h3>AHU-${index + 1}</h3>
+                    <table>
+                        <tr>
+                            <td>Running Status</td>
+                            <td class="${statusClass(ahu.run_status)}">${statusText(ahu.run_status)}</td>
+                        </tr>
+                        <tr>
+                            <td>Alarm</td>
+                            <td class="${alarmClass(ahu.alarm)}">${alarmText(ahu.alarm)}</td>
+                        </tr>
+                        <tr>
+                            <td>Power</td>
+                            <td>${formatNumber(ahu.power)} kW</td>
+                        </tr>
+                        <tr>
+                            <td>Air Flow</td>
+                            <td>${formatNumber(ahu.air_flow)} CFM</td>
+                        </tr>
+                        <tr>
+                            <td>Supply Temp</td>
+                            <td>${formatNumber(ahu.supply_temp)} °C</td>
+                        </tr>
+                        <tr>
+                            <td>Return Temp</td>
+                            <td>${formatNumber(ahu.return_temp)} °C</td>
+                        </tr>
+                        <tr>
+                            <td>Delta T</td>
+                            <td>${deltaT !== null && deltaT !== undefined ? `${formatNumber(deltaT)} °C` : "-"}</td>
+                        </tr>
+                        <tr>
+                            <td>Efficiency</td>
+                            <td>${formatNumber(ahu.efficiency, 4)} kW/CFM</td>
+                        </tr>
+                        <tr>
+                            <td>Sub-Meter Energy</td>
+                            <td>${formatNumber(meter.energy_delta)} kWh</td>
+                        </tr>
+                    </table>
+                `;
+
+                container.appendChild(card);
+            });
+        }
+
+        function renderZones(zones) {
+            const container = document.getElementById("zoneCards");
+            container.innerHTML = "";
+
+            for (let floor = 1; floor <= 4; floor++) {
+                const zone = (zones || []).find(x => Number(x.floor) === floor);
+                const card = document.createElement("div");
+                card.className = "card";
+
+                if (!zone) {
+                    card.innerHTML = `
+                        <h3>Floor ${floor}</h3>
+                        <div class="muted">No zone data</div>
+                    `;
+                } else {
+                    card.innerHTML = `
+                        <h3>Floor ${floor}</h3>
+                        <table>
+                            <tr>
+                                <td>Avg Temp</td>
+                                <td>${formatNumber(zone.avg_temp)} °C</td>
+                            </tr>
+                            <tr>
+                                <td>Avg Humidity</td>
+                                <td>${formatNumber(zone.avg_humidity)} %</td>
+                            </tr>
+                            <tr>
+                                <td>AHU On Count</td>
+                                <td>${formatNumber(zone.ahu_on_count, 0)}</td>
+                            </tr>
+                            <tr>
+                                <td>AHU Alarm Count</td>
+                                <td>${formatNumber(zone.ahu_alarm_count, 0)}</td>
+                            </tr>
+                        </table>
+                    `;
+                }
+
+                container.appendChild(card);
+            }
+        }
+
+        function renderZoneEnvChart(trendData) {
+            const datasetsFromApi = trendData.datasets || {};
+            const floors = [1, 2, 3, 4];
+            const selectedZoneMetric = document.getElementById("zoneMetricSelect").value;
+
+            const allTs = new Set();
+            const valueMaps = {};
+
+            floors.forEach(f => {
+                valueMaps[`floor_${f}_temp`] = {};
+                valueMaps[`floor_${f}_humidity`] = {};
+            });
+
+            Object.keys(datasetsFromApi).forEach(key => {
+                (datasetsFromApi[key] || []).forEach(p => {
+                    allTs.add(p.ts);
+                    valueMaps[key][p.ts] =
+                        p.value !== null && p.value !== undefined ? Number(p.value) : null;
+                });
+            });
+
+            const sortedTs = Array.from(allTs).sort((a, b) => new Date(a) - new Date(b));
+            const labels = sortedTs.map(ts => toChartLabelTH(ts));
+
+            const datasets = [];
+
+            floors.forEach(f => {
+                if (selectedZoneMetric === "temp" || selectedZoneMetric === "both") {
+                    datasets.push({
+                        label: `Floor ${f} Temp`,
+                        data: sortedTs.map(ts => valueMaps[`floor_${f}_temp`][ts] ?? null),
+                        borderWidth: 2,
+                        tension: 0.25,
+                        spanGaps: true,
+                        pointRadius: 2,
+                        pointHoverRadius: 4,
+                        yAxisID: "y"
+                    });
+                }
+
+                if (selectedZoneMetric === "humidity" || selectedZoneMetric === "both") {
+                    datasets.push({
+                        label: `Floor ${f} Humidity`,
+                        data: sortedTs.map(ts => valueMaps[`floor_${f}_humidity`][ts] ?? null),
+                        borderDash: [5, 5],
+                        borderWidth: 2,
+                        tension: 0.25,
+                        spanGaps: true,
+                        pointRadius: 2,
+                        pointHoverRadius: 4,
+                        yAxisID: "y1"
+                    });
+                }
+            });
+
+            if (zoneEnvChart) {
+                zoneEnvChart.destroy();
+            }
+
+            const ctx = document.getElementById("zoneEnvChart").getContext("2d");
+            zoneEnvChart = new Chart(ctx, {
+                type: "line",
+                data: {
+                    labels,
+                    datasets
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    interaction: {
+                        mode: "index",
+                        intersect: false
+                    },
+                    elements: {
+                        line: {
+                            spanGaps: true
+                        }
+                    },
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                title(items) {
+                                    if (!items.length) return "";
+                                    const idx = items[0].dataIndex;
+                                    const ts = sortedTs[idx];
+                                    return formatDateTimeTH(ts);
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            display: selectedZoneMetric === "temp" || selectedZoneMetric === "both",
+                            title: {
+                                display: selectedZoneMetric === "temp" || selectedZoneMetric === "both",
+                                text: "Temperature (°C)"
+                            }
+                        },
+                        y1: {
+                            display: selectedZoneMetric === "humidity" || selectedZoneMetric === "both",
+                            position: "right",
+                            grid: {
+                                drawOnChartArea: false
+                            },
+                            title: {
+                                display: selectedZoneMetric === "humidity" || selectedZoneMetric === "both",
+                                text: "Humidity (%)"
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function metricLabel(metric) {
+            if (metric === "power") return "Power (kW)";
+            if (metric === "air_flow") return "Air Flow (CFM)";
+            if (metric === "efficiency") return "Efficiency (kW/CFM)";
+            return metric;
+        }
+
+        function buildUnifiedTrendData(trendData) {
+            const datasetsFromApi = trendData.datasets || {};
+            const orderedDevices = ["ahu_1", "ahu_2", "ahu_3", "ahu_4"];
+
+            const allTs = new Set();
+            const valueMaps = {
+                ahu_1: {},
+                ahu_2: {},
+                ahu_3: {},
+                ahu_4: {}
+            };
+
+            orderedDevices.forEach(device => {
+                const points = datasetsFromApi[device] || [];
+                points.forEach(p => {
+                    const key = p.ts;
+                    allTs.add(key);
+                    valueMaps[device][key] =
+                        p.value === null || p.value === undefined ? null : Number(p.value);
+                });
+            });
+
+            const sortedTs = Array.from(allTs).sort((a, b) => new Date(a) - new Date(b));
+            const labels = sortedTs.map(ts => toChartLabelTH(ts));
+
+            return {
+                sortedTs,
+                labels,
+                valueMaps
+            };
+        }
+
+        function renderTrend(trendData) {
+            const metric = trendData.metric;
+            const unified = buildUnifiedTrendData(trendData);
+
+            const datasetConfig = [
+                { key: "ahu_1", label: "AHU-1" },
+                { key: "ahu_2", label: "AHU-2" },
+                { key: "ahu_3", label: "AHU-3" },
+                { key: "ahu_4", label: "AHU-4" }
+            ];
+
+            const datasets = datasetConfig.map(cfg => {
+                return {
+                    label: `${cfg.label} ${metricLabel(metric)}`,
+                    data: unified.sortedTs.map(ts => {
+                        const v = unified.valueMaps[cfg.key][ts];
+                        return v !== undefined ? v : null;
+                    }),
+                    borderWidth: 2,
+                    tension: 0.25,
+                    spanGaps: true,
+                    pointRadius: 2,
+                    pointHoverRadius: 4
+                };
+            });
+
+            if (airTrendChart) {
+                airTrendChart.destroy();
+            }
+
+            const ctx = document.getElementById("airTrendChart").getContext("2d");
+            airTrendChart = new Chart(ctx, {
+                type: "line",
+                data: {
+                    labels: unified.labels,
+                    datasets
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    interaction: {
+                        mode: "index",
+                        intersect: false
+                    },
+                    elements: {
+                        line: {
+                            spanGaps: true
+                        }
+                    },
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                title(items) {
+                                    if (!items.length) return "";
+                                    const idx = items[0].dataIndex;
+                                    const ts = unified.sortedTs[idx];
+                                    return formatDateTimeTH(ts);
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        async function loadAirDashboard() {
+            try {
+                const range = document.getElementById("timeRangeSelect").value;
+                const metric = document.getElementById("metricSelect").value;
+
+                const [summary, trend, zoneTrend] = await Promise.all([
+                    fetchAirSummary(range),
+                    fetchAirTrend(range, metric),
+                    fetchZoneTrend(range)
+                ]);
+
+                renderSummary(summary);
+                renderAhus(summary.ahus || {}, summary.ahu_energy_by_meter || {});
+                renderZones(summary.zone_averages || []);
+                renderZoneEnvChart(zoneTrend);
+                renderTrend(trend);
+
+            } catch (error) {
+                console.error("Air dashboard load error:", error);
+            }
+        }
+
+        setActiveNav();
+        document.getElementById("timeRangeSelect").addEventListener("change", loadAirDashboard);
+        document.getElementById("metricSelect").addEventListener("change", loadAirDashboard);
+        document.getElementById("zoneMetricSelect").addEventListener("change", loadAirDashboard);
+
+        loadAirDashboard();
+        setInterval(loadAirDashboard, 10000);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,325 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="tbGVfMgjxvZi6RBjNwY-">
+    <mxGraphModel dx="4570" dy="2210" grid="1" gridSize="16" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="r5taLkxgRbsk03CEcrzI-95" connectable="0" parent="1" style="group;fontSize=20;" value="" vertex="1">
+          <mxGeometry height="1328" width="2498" x="-2125" y="-720" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-5" connectable="0" parent="r5taLkxgRbsk03CEcrzI-95" style="group;fontSize=15;" value="" vertex="1">
+          <mxGeometry height="286" width="256" x="-64" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-2" parent="r5taLkxgRbsk03CEcrzI-5" style="whiteSpace=wrap;html=1;aspect=fixed;align=left;strokeWidth=2;fontSize=15;" value="&lt;div&gt;Chiller-01 Controller&lt;/div&gt;&lt;div&gt;Protocol: BACnet/IP&lt;/div&gt;&lt;div&gt;IP: 192.168.10.21&lt;/div&gt;&lt;div&gt;Device ID: 1101&lt;/div&gt;&lt;div&gt;--------------------------------------------------&lt;/div&gt;&lt;div&gt;Chiller-02 Controller&lt;/div&gt;&lt;div&gt;Protocol: BACnet/IP&lt;/div&gt;&lt;div&gt;IP: 192.168.10.22&lt;/div&gt;&lt;div&gt;Device ID: 1102&lt;/div&gt;&lt;div&gt;--------------------------------------------------&lt;/div&gt;&lt;div&gt;Chiller-03 Controller&lt;/div&gt;&lt;div&gt;Protocol: BACnet/IP&lt;/div&gt;&lt;div&gt;IP: 192.168.10.23&lt;/div&gt;&lt;div&gt;Device ID: 1103&lt;/div&gt;" vertex="1">
+          <mxGeometry height="256" width="256" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-4" parent="r5taLkxgRbsk03CEcrzI-5" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=15;fontStyle=5" value="Chillers" vertex="1">
+          <mxGeometry height="30" width="60" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-6" connectable="0" parent="r5taLkxgRbsk03CEcrzI-95" style="group;fontSize=15;" value="" vertex="1">
+          <mxGeometry height="286" width="256" x="-64" y="286" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-7" parent="r5taLkxgRbsk03CEcrzI-6" style="whiteSpace=wrap;html=1;aspect=fixed;align=left;strokeWidth=2;fontSize=15;" value="&lt;div&gt;CHWP-01 Controller&lt;/div&gt;&lt;div&gt;Protocol: BACnet/IP&lt;/div&gt;&lt;div&gt;IP: 192.168.10.24&lt;/div&gt;&lt;div&gt;Device ID: 1201&lt;/div&gt;&lt;div&gt;--------------------------------------------------&lt;/div&gt;&lt;div&gt;CHWP-02 Controller&lt;/div&gt;&lt;div&gt;Protocol: BACnet/IP&lt;/div&gt;&lt;div&gt;IP: 192.168.10.25&lt;/div&gt;&lt;div&gt;Device ID: 1202&lt;/div&gt;&lt;div&gt;--------------------------------------------------&lt;/div&gt;&lt;div&gt;CHWP-03 Controller&lt;/div&gt;&lt;div&gt;Protocol: BACnet/IP&lt;/div&gt;&lt;div&gt;IP: 192.168.10.26&lt;/div&gt;&lt;div&gt;Device ID: 1203&lt;/div&gt;" vertex="1">
+          <mxGeometry height="256" width="256" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-8" parent="r5taLkxgRbsk03CEcrzI-6" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;fontSize=15;fontStyle=5" value="Chilled Water Pumps" vertex="1">
+          <mxGeometry height="30" width="176" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-9" connectable="0" parent="r5taLkxgRbsk03CEcrzI-95" style="group;align=left;fontSize=15;" value="" vertex="1">
+          <mxGeometry height="286" width="256" x="-64" y="592" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-10" parent="r5taLkxgRbsk03CEcrzI-9" style="whiteSpace=wrap;html=1;aspect=fixed;align=left;strokeWidth=2;fontSize=15;" value="&lt;div&gt;CDP-01 Controller&lt;/div&gt;&lt;div&gt;Protocol: BACnet/IP&lt;/div&gt;&lt;div&gt;IP: 192.168.10.27&lt;/div&gt;&lt;div&gt;Device ID: 1301&lt;/div&gt;&lt;div&gt;--------------------------------------------------&lt;/div&gt;&lt;div&gt;CDP-02 Controller&lt;/div&gt;&lt;div&gt;Protocol: BACnet/IP&lt;/div&gt;&lt;div&gt;IP: 192.168.10.28&lt;/div&gt;&lt;div&gt;Device ID: 1302&lt;/div&gt;&lt;div&gt;--------------------------------------------------&lt;/div&gt;&lt;div&gt;CDP-03 Controller&lt;/div&gt;&lt;div&gt;Protocol: BACnet/IP&lt;/div&gt;&lt;div&gt;IP: 192.168.10.29&lt;/div&gt;&lt;div&gt;Device ID: 1303&lt;/div&gt;" vertex="1">
+          <mxGeometry height="256" width="256" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-11" parent="r5taLkxgRbsk03CEcrzI-9" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=15;fontStyle=5" value="Condenser Water Pumps" vertex="1">
+          <mxGeometry height="30" width="192" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-12" connectable="0" parent="r5taLkxgRbsk03CEcrzI-95" style="group;align=left;fontSize=15;" value="" vertex="1">
+          <mxGeometry height="286" width="256" x="-64" y="896" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-13" parent="r5taLkxgRbsk03CEcrzI-12" style="whiteSpace=wrap;html=1;aspect=fixed;align=left;strokeWidth=2;fontSize=15;" value="&lt;div&gt;CT-01 Controller&lt;/div&gt;&lt;div&gt;Protocol: BACnet/IP&lt;/div&gt;&lt;div&gt;IP: 192.168.10.30&lt;/div&gt;&lt;div&gt;Device ID: 1401&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;--------------------------------------------------&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;CT-02 Controller&lt;/span&gt;&lt;/div&gt;&lt;div&gt;Protocol: BACnet/IP&lt;/div&gt;&lt;div&gt;IP: 192.168.10.31&lt;/div&gt;&lt;div&gt;Device ID: 1402&lt;/div&gt;&lt;div&gt;--------------------------------------------------&lt;/div&gt;&lt;div&gt;CT-03 Controller&lt;/div&gt;&lt;div&gt;Protocol: BACnet/IP&lt;/div&gt;&lt;div&gt;IP: 192.168.10.32&lt;/div&gt;&lt;div&gt;Device ID: 1403&lt;/div&gt;" vertex="1">
+          <mxGeometry height="256" width="256" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-14" parent="r5taLkxgRbsk03CEcrzI-12" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;fontSize=15;fontStyle=5" value="Cooling Towers" vertex="1">
+          <mxGeometry height="30" width="192" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-30" connectable="0" parent="r5taLkxgRbsk03CEcrzI-95" style="group;fontSize=13;" value="" vertex="1">
+          <mxGeometry height="928" width="512" x="320" y="96" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-15" connectable="0" parent="r5taLkxgRbsk03CEcrzI-30" style="group;fontSize=13;" value="" vertex="1">
+          <mxGeometry height="502" width="396" x="16" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-90" edge="1" parent="r5taLkxgRbsk03CEcrzI-15" source="r5taLkxgRbsk03CEcrzI-98" style="endArrow=none;html=1;rounded=0;strokeWidth=5;exitX=0.5;exitY=1;exitDx=0;exitDy=0;fontSize=13;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="208" y="373.20000000000005" as="sourcePoint" />
+            <mxPoint x="184" y="450" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-98" parent="r5taLkxgRbsk03CEcrzI-15" style="image;html=1;image=img/lib/clip_art/networking/Switch_128x128.png;fontSize=13;" value="" vertex="1">
+          <mxGeometry height="84" width="144" x="112" y="342" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-108" parent="r5taLkxgRbsk03CEcrzI-15" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontStyle=1;fontSize=13;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Floor 3 Switch Hub&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;IP:&amp;nbsp;192.168.10.70&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="30" width="236" x="192" y="466" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-109" parent="r5taLkxgRbsk03CEcrzI-15" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontStyle=1;fontSize=13;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Floor 1 Switch Hub&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;IP:&amp;nbsp;192.168.10.50&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="30" width="236" x="192" y="402" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-110" parent="r5taLkxgRbsk03CEcrzI-15" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontStyle=1;fontSize=13;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Plant Switch Hub&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;IP:&amp;nbsp;192.168.10.20&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="30" width="236" x="-65" y="472" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-92" edge="1" parent="r5taLkxgRbsk03CEcrzI-30" style="endArrow=none;html=1;rounded=0;strokeWidth=5;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=13;" target="r5taLkxgRbsk03CEcrzI-53" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="199.66000000000008" y="480" as="sourcePoint" />
+            <mxPoint x="199.66000000000008" y="560" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-101" parent="r5taLkxgRbsk03CEcrzI-30" style="image;html=1;image=img/lib/clip_art/networking/Switch_128x128.png;fontSize=13;" value="" vertex="1">
+          <mxGeometry height="84" width="144" x="112" y="544" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-52" connectable="0" parent="r5taLkxgRbsk03CEcrzI-95" style="group;fontSize=13;" value="" vertex="1">
+          <mxGeometry height="508" width="448" x="320" y="768" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-53" parent="r5taLkxgRbsk03CEcrzI-52" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=none;strokeWidth=3;fontSize=13;" value="" vertex="1">
+          <mxGeometry height="400" width="400" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-54" connectable="0" parent="r5taLkxgRbsk03CEcrzI-52" style="group;fontSize=13;" value="" vertex="1">
+          <mxGeometry height="478" width="320" x="16" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-55" parent="r5taLkxgRbsk03CEcrzI-54" style="whiteSpace=wrap;html=1;aspect=fixed;align=left;strokeWidth=2;fontSize=13;" value="&lt;div&gt;AHU-03 Controller and&amp;nbsp;Motorized Valve&lt;/div&gt;&lt;div&gt;Protocol: BACnet/IP&lt;/div&gt;&lt;div&gt;IP:&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;192.168.10.72&lt;/span&gt;&lt;/div&gt;&lt;div&gt;Device ID: 2103&lt;/div&gt;" vertex="1">
+          <mxGeometry height="128" width="128" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-56" parent="r5taLkxgRbsk03CEcrzI-54" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;fontSize=13;fontStyle=5" value="AHU" vertex="1">
+          <mxGeometry height="30" width="60" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-57" parent="r5taLkxgRbsk03CEcrzI-54" style="text;html=1;whiteSpace=wrap;strokeColor=default;fillColor=none;align=center;verticalAlign=middle;rounded=0;strokeWidth=3;fontSize=13;" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;div&gt;IAQ-05 Sensor&lt;/div&gt;&lt;div&gt;Protocol: BACnet/IP&lt;/div&gt;&lt;div&gt;IP:&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;192.168.10.77&lt;/span&gt;&lt;/div&gt;&lt;div&gt;Device ID: 3105&lt;/div&gt;&lt;div&gt;&lt;div&gt;---------------------------&lt;/div&gt;&lt;/div&gt;&lt;div&gt;IAQ-06 Sensor&lt;/div&gt;&lt;div&gt;Protocol: BACnet/IP&lt;/div&gt;&lt;div&gt;IP:&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;192.168.10.78&lt;/span&gt;&lt;/div&gt;&lt;div&gt;Device ID: 3106&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="154" width="128" y="198" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-58" parent="r5taLkxgRbsk03CEcrzI-52" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=13;fontStyle=5" value="Floor 3" vertex="1">
+          <mxGeometry height="30" width="60" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-59" parent="r5taLkxgRbsk03CEcrzI-52" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;fontSize=13;fontStyle=5" value="VAV" vertex="1">
+          <mxGeometry height="30" width="60" x="160" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-60" parent="r5taLkxgRbsk03CEcrzI-52" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;fontSize=13;fontStyle=5" value="IAQ" vertex="1">
+          <mxGeometry height="30" width="60" x="16" y="192" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-61" parent="r5taLkxgRbsk03CEcrzI-52" style="text;html=1;whiteSpace=wrap;strokeColor=default;fillColor=none;align=center;verticalAlign=middle;rounded=0;strokeWidth=3;fontSize=13;" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;div&gt;VAV-09 Controller&lt;/div&gt;&lt;div&gt;Protocol: BACnet/IP&lt;/div&gt;&lt;div&gt;IP:&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;192.168.10.73&lt;/span&gt;&lt;/div&gt;&lt;div&gt;Device ID: 2209&lt;/div&gt;&lt;div&gt;---------------------------&lt;/div&gt;&lt;div&gt;VAV-10 Controller&lt;/div&gt;&lt;div&gt;Protocol: BACnet/IP&lt;/div&gt;&lt;div&gt;IP:&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;192.168.10.74&lt;/span&gt;&lt;/div&gt;&lt;div&gt;Device ID: 2210&lt;/div&gt;&lt;div&gt;---------------------------&lt;/div&gt;&lt;div&gt;VAV-11 Controller&lt;/div&gt;&lt;div&gt;Protocol: BACnet/IP&lt;/div&gt;&lt;div&gt;IP:&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;192.168.10.75&lt;/span&gt;&lt;/div&gt;&lt;div&gt;Device ID: 2211&lt;/div&gt;&lt;div&gt;---------------------------&lt;/div&gt;&lt;div&gt;VAV-12 Controller&lt;/div&gt;&lt;div&gt;Protocol: BACnet/IP&lt;/div&gt;&lt;div&gt;IP:&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;192.168.10.76&lt;/span&gt;&lt;/div&gt;&lt;div&gt;Device ID: 2212&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="312" width="160" x="160" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-62" connectable="0" parent="r5taLkxgRbsk03CEcrzI-95" style="group;fontSize=13;align=left;" value="" vertex="1">
+          <mxGeometry height="508" width="448" x="784" y="768" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-63" parent="r5taLkxgRbsk03CEcrzI-62" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=none;strokeWidth=3;fontSize=13;" value="" vertex="1">
+          <mxGeometry height="400" width="400" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-64" connectable="0" parent="r5taLkxgRbsk03CEcrzI-62" style="group;fontSize=13;align=left;" value="" vertex="1">
+          <mxGeometry height="478" width="320" x="16" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-65" parent="r5taLkxgRbsk03CEcrzI-64" style="whiteSpace=wrap;html=1;aspect=fixed;align=left;strokeWidth=2;fontSize=13;" value="&lt;div&gt;AHU-04 Controller and&amp;nbsp;Motorized Valve&lt;/div&gt;&lt;div&gt;Protocol: BACnet/IP&lt;/div&gt;&lt;div&gt;IP:&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;192.168.10.82&lt;/span&gt;&lt;/div&gt;&lt;div&gt;Device ID: 2104&lt;/div&gt;" vertex="1">
+          <mxGeometry height="128" width="128" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-66" parent="r5taLkxgRbsk03CEcrzI-64" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;fontSize=13;fontStyle=5" value="AHU" vertex="1">
+          <mxGeometry height="30" width="60" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-67" parent="r5taLkxgRbsk03CEcrzI-64" style="text;html=1;whiteSpace=wrap;strokeColor=default;fillColor=none;align=center;verticalAlign=middle;rounded=0;strokeWidth=3;fontSize=13;" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;div&gt;IAQ-07 Sensor&lt;/div&gt;&lt;div&gt;Protocol: BACnet/IP&lt;/div&gt;&lt;div&gt;IP:&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;192.168.10.87&lt;/span&gt;&lt;/div&gt;&lt;div&gt;Device ID: 3107&lt;/div&gt;&lt;div&gt;&lt;div&gt;---------------------------&lt;/div&gt;&lt;/div&gt;&lt;div&gt;IAQ-08 Sensor&lt;/div&gt;&lt;div&gt;Protocol: BACnet/IP&lt;/div&gt;&lt;div&gt;IP:&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;192.168.10.88&lt;/span&gt;&lt;/div&gt;&lt;div&gt;Device ID: 3108&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="154" width="128" y="198" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-68" parent="r5taLkxgRbsk03CEcrzI-62" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=13;fontStyle=5" value="Floor 4" vertex="1">
+          <mxGeometry height="30" width="60" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-69" parent="r5taLkxgRbsk03CEcrzI-62" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;fontSize=13;fontStyle=5" value="VAV" vertex="1">
+          <mxGeometry height="30" width="60" x="160" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-70" parent="r5taLkxgRbsk03CEcrzI-62" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;fontSize=13;fontStyle=5" value="IAQ" vertex="1">
+          <mxGeometry height="30" width="60" x="16" y="192" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-71" parent="r5taLkxgRbsk03CEcrzI-62" style="text;html=1;whiteSpace=wrap;strokeColor=default;fillColor=none;align=center;verticalAlign=middle;rounded=0;strokeWidth=3;fontSize=13;" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;div&gt;VAV-13 Controller&lt;/div&gt;&lt;div&gt;Protocol: BACnet/IP&lt;/div&gt;&lt;div&gt;IP:&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;192.168.10.83&lt;/span&gt;&lt;/div&gt;&lt;div&gt;Device ID: 2213&lt;/div&gt;&lt;div&gt;&lt;div&gt;---------------------------&lt;/div&gt;&lt;/div&gt;&lt;div&gt;VAV-14 Controller&lt;/div&gt;&lt;div&gt;Protocol: BACnet/IP&lt;/div&gt;&lt;div&gt;IP:&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;192.168.10.84&lt;/span&gt;&lt;/div&gt;&lt;div&gt;Device ID: 2214&lt;/div&gt;&lt;div&gt;&lt;div&gt;---------------------------&lt;/div&gt;&lt;/div&gt;&lt;div&gt;VAV-15 Controller&lt;/div&gt;&lt;div&gt;Protocol: BACnet/IP&lt;/div&gt;&lt;div&gt;IP:&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;192.168.10.85&lt;/span&gt;&lt;/div&gt;&lt;div&gt;Device ID: 2215&lt;/div&gt;&lt;div&gt;&lt;div&gt;---------------------------&lt;/div&gt;&lt;/div&gt;&lt;div&gt;VAV-16 Controller&lt;/div&gt;&lt;div&gt;Protocol: BACnet/IP&lt;/div&gt;&lt;div&gt;IP:&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;192.168.10.86&lt;/span&gt;&lt;/div&gt;&lt;div&gt;Device ID: 2216&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="312" width="160" x="160" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-31" connectable="0" parent="r5taLkxgRbsk03CEcrzI-95" style="group;fontSize=13;" value="" vertex="1">
+          <mxGeometry height="508" width="492" x="784" y="96" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-33" connectable="0" parent="r5taLkxgRbsk03CEcrzI-31" style="group;fontSize=13;" value="" vertex="1">
+          <mxGeometry height="478" width="476" x="16" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-82" edge="1" parent="r5taLkxgRbsk03CEcrzI-33" style="endArrow=classic;html=1;rounded=0;curved=0;strokeWidth=7;fontSize=13;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="-512" y="450" as="sourcePoint" />
+            <mxPoint x="736" y="450" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-91" edge="1" parent="r5taLkxgRbsk03CEcrzI-33" style="endArrow=none;html=1;rounded=0;strokeWidth=5;exitX=0.5;exitY=1;exitDx=0;exitDy=0;fontSize=13;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="159.65999999999997" y="306" as="sourcePoint" />
+            <mxPoint x="160" y="450" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-21" parent="r5taLkxgRbsk03CEcrzI-33" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=none;strokeWidth=3;fontSize=13;" value="" vertex="1">
+          <mxGeometry height="400" width="400" x="-480" y="-94" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-16" parent="r5taLkxgRbsk03CEcrzI-33" style="whiteSpace=wrap;html=1;aspect=fixed;align=left;strokeWidth=2;fontSize=13;" value="&lt;div&gt;AHU-01 Controller and&amp;nbsp;Motorized Valve&lt;/div&gt;&lt;div&gt;Protocol: BACnet/IP&lt;/div&gt;&lt;div&gt;IP: 192.168.10.52&lt;/div&gt;&lt;div&gt;Device ID: 2101&lt;/div&gt;" vertex="1">
+          <mxGeometry height="128" width="128" x="-464" y="-34" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-17" parent="r5taLkxgRbsk03CEcrzI-33" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;fontSize=13;fontStyle=5" value="AHU" vertex="1">
+          <mxGeometry height="30" width="60" x="-464" y="-64" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-29" parent="r5taLkxgRbsk03CEcrzI-33" style="text;html=1;whiteSpace=wrap;strokeColor=default;fillColor=none;align=center;verticalAlign=middle;rounded=0;strokeWidth=3;fontSize=13;" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;div&gt;&lt;span&gt;IAQ-01 Sensor&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;Protocol: BACnet/IP&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;IP: 192.168.10.57&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;Device ID: 3101&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;----------------------------&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;IAQ-02 Sensor&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;Protocol: BACnet/IP&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;IP: 192.168.10.58&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;Device ID: 3102&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="154" width="128" x="-464" y="134" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-23" parent="r5taLkxgRbsk03CEcrzI-33" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=13;fontStyle=5" value="Floor 1" vertex="1">
+          <mxGeometry height="30" width="60" x="-480" y="-94" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-40" parent="r5taLkxgRbsk03CEcrzI-33" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=13;fontStyle=5" value="VAV" vertex="1">
+          <mxGeometry height="30" width="60" x="-320" y="-64" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-28" parent="r5taLkxgRbsk03CEcrzI-33" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;fontSize=13;fontStyle=5" value="IAQ" vertex="1">
+          <mxGeometry height="30" width="60" x="-464" y="104" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-27" parent="r5taLkxgRbsk03CEcrzI-33" style="text;html=1;whiteSpace=wrap;strokeColor=default;fillColor=none;align=center;verticalAlign=middle;rounded=0;strokeWidth=3;fontSize=13;" value="&lt;div style=&quot;text-align: left;&quot;&gt;VAV-01 Controller&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;rotocol: BACnet/IP&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;IP: 192.168.10.53&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;Device ID: 2201&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;----------------------------&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;VAV-02 Controller&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;Protocol: BACnet/IP&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;IP: 192.168.10.54&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;Device ID: 2202&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;----------------------------&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;VAV-03 Controller&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;Protocol: BACnet/IP&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;IP: 192.168.10.55&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;Device ID: 2203&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;----------------------------&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;VAV-04 Controller&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;Protocol: BACnet/IP&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;IP: 192.168.10.56&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;Device ID: 2204&lt;/div&gt;" vertex="1">
+          <mxGeometry height="312" width="160" x="-320" y="-37" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-32" parent="r5taLkxgRbsk03CEcrzI-33" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=none;strokeWidth=3;fontSize=13;" value="" vertex="1">
+          <mxGeometry height="400" width="400" x="-16" y="-94" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-34" parent="r5taLkxgRbsk03CEcrzI-33" style="whiteSpace=wrap;html=1;aspect=fixed;align=left;strokeWidth=2;fontSize=13;" value="AHU-02 Controller and&amp;nbsp;Motorized Valve&lt;br&gt;Protocol: BACnet/IP&lt;br&gt;IP: 192.168.10.62&lt;br&gt;Device ID: 2102" vertex="1">
+          <mxGeometry height="128" width="128" y="-34" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-35" parent="r5taLkxgRbsk03CEcrzI-33" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;fontSize=13;fontStyle=5" value="AHU" vertex="1">
+          <mxGeometry height="30" width="60" y="-64" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-36" parent="r5taLkxgRbsk03CEcrzI-33" style="text;html=1;whiteSpace=wrap;strokeColor=default;fillColor=none;align=center;verticalAlign=middle;rounded=0;strokeWidth=3;fontSize=13;" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;div&gt;IAQ-03 Sensor&lt;/div&gt;&lt;div&gt;Protocol: BACnet/IP&lt;/div&gt;&lt;div&gt;IP:&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;192.168.10.67&lt;/span&gt;&lt;/div&gt;&lt;div&gt;Device ID: 3103&lt;/div&gt;&lt;div&gt;----------------------------&lt;/div&gt;&lt;div&gt;IAQ-04 Sensor&lt;/div&gt;&lt;div&gt;Protocol: BACnet/IP&lt;/div&gt;&lt;div&gt;IP:&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;192.168.10.68&lt;/span&gt;&lt;/div&gt;&lt;div&gt;Device ID: 3104&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="154" width="128" y="134" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-38" parent="r5taLkxgRbsk03CEcrzI-33" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=13;fontStyle=5" value="Floor 2" vertex="1">
+          <mxGeometry height="30" width="60" x="-16" y="-94" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-39" parent="r5taLkxgRbsk03CEcrzI-33" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;fontSize=13;fontStyle=5" value="VAV" vertex="1">
+          <mxGeometry height="30" width="60" x="144" y="-64" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-51" parent="r5taLkxgRbsk03CEcrzI-33" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;fontSize=13;fontStyle=5" value="IAQ" vertex="1">
+          <mxGeometry height="30" width="60" y="98" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-37" parent="r5taLkxgRbsk03CEcrzI-33" style="text;html=1;whiteSpace=wrap;strokeColor=default;fillColor=none;align=center;verticalAlign=middle;rounded=0;strokeWidth=3;fontSize=13;" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;div&gt;&lt;span&gt;VAV-05 Controller&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;Protocol: BACnet/IP&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;IP: 192.168.10.63&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;Device ID: 2205&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;----------------------------&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;VAV-06 Controller&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;Protocol: BACnet/IP&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;IP:&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;192.168.10.64&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;Device ID: 2206&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;----------------------------&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;VAV-07 Controller&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;Protocol: BACnet/IP&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;IP:&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;192.168.10.65&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;Device ID: 2207&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;----------------------------&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;VAV-08 Controller&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;Protocol: BACnet/IP&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;IP:&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;192.168.10.66&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;Device ID: 2208&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="312" width="160" x="144" y="-34" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-97" parent="r5taLkxgRbsk03CEcrzI-33" style="image;html=1;image=img/lib/clip_art/networking/Switch_128x128.png;fontSize=13;" value="" vertex="1">
+          <mxGeometry height="84" width="144" x="96" y="338" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-105" parent="r5taLkxgRbsk03CEcrzI-33" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontStyle=1;fontSize=13;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Floor 2 Switch Hub&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;IP:&amp;nbsp;192.168.10.60&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="30" width="236" x="144" y="402" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-84" edge="1" parent="r5taLkxgRbsk03CEcrzI-95" style="endArrow=none;html=1;rounded=0;strokeWidth=5;fontSize=13;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="288" y="1072" as="sourcePoint" />
+            <mxPoint x="288" y="144" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-86" edge="1" parent="r5taLkxgRbsk03CEcrzI-95" source="r5taLkxgRbsk03CEcrzI-2" style="endArrow=none;html=1;rounded=0;strokeWidth=5;exitX=1;exitY=0.44;exitDx=0;exitDy=0;exitPerimeter=0;fontSize=13;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="256" y="142.66999999999996" as="sourcePoint" />
+            <mxPoint x="288" y="142.66999999999996" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-87" edge="1" parent="r5taLkxgRbsk03CEcrzI-95" source="r5taLkxgRbsk03CEcrzI-7" style="endArrow=none;html=1;rounded=0;strokeWidth=5;exitX=0.986;exitY=0.438;exitDx=0;exitDy=0;exitPerimeter=0;fontSize=13;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="256" y="428.66999999999996" as="sourcePoint" />
+            <mxPoint x="288" y="428.66999999999996" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-88" edge="1" parent="r5taLkxgRbsk03CEcrzI-95" style="endArrow=none;html=1;rounded=0;strokeWidth=5;fontSize=13;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="192" y="752" as="sourcePoint" />
+            <mxPoint x="288" y="752" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-89" edge="1" parent="r5taLkxgRbsk03CEcrzI-95" source="r5taLkxgRbsk03CEcrzI-13" style="endArrow=none;html=1;rounded=0;strokeWidth=5;exitX=1.001;exitY=0.568;exitDx=0;exitDy=0;exitPerimeter=0;fontSize=13;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="256" y="1072" as="sourcePoint" />
+            <mxPoint x="288" y="1072" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-93" edge="1" parent="r5taLkxgRbsk03CEcrzI-95" style="endArrow=none;html=1;rounded=0;strokeWidth=5;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.441;entryY=-0.004;entryDx=0;entryDy=0;entryPerimeter=0;fontSize=13;" target="r5taLkxgRbsk03CEcrzI-63" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="960" y="576" as="sourcePoint" />
+            <mxPoint x="960.3399999999999" y="672" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-94" parent="r5taLkxgRbsk03CEcrzI-95" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontStyle=1;fontSize=20;" value="BACnet/IP (UDP 47808)" vertex="1">
+          <mxGeometry height="30" width="284" x="1216" y="528" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-99" edge="1" parent="r5taLkxgRbsk03CEcrzI-95" source="r5taLkxgRbsk03CEcrzI-21" style="endArrow=none;html=1;rounded=0;strokeWidth=5;exitX=0.5;exitY=1;exitDx=0;exitDy=0;fontSize=13;" target="r5taLkxgRbsk03CEcrzI-98" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="-808" y="-434" as="sourcePoint" />
+            <mxPoint x="-808" y="-290" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-100" parent="r5taLkxgRbsk03CEcrzI-95" style="image;html=1;image=img/lib/clip_art/networking/Switch_128x128.png;fontSize=13;" value="" vertex="1">
+          <mxGeometry height="84" width="144" x="896" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-102" parent="r5taLkxgRbsk03CEcrzI-95" style="image;html=1;image=img/lib/clip_art/networking/Switch_128x128.png;fontSize=13;" value="" vertex="1">
+          <mxGeometry height="84" width="144" x="224" y="528" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-107" parent="r5taLkxgRbsk03CEcrzI-95" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontStyle=1;fontSize=13;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Floor 4 Switch Hub&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;IP:&amp;nbsp;192.168.10.80&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="30" width="236" x="944" y="592" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-115" connectable="0" parent="r5taLkxgRbsk03CEcrzI-95" style="group;fontSize=13;" value="" vertex="1">
+          <mxGeometry height="672" width="1010" x="1488" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-78" connectable="0" parent="r5taLkxgRbsk03CEcrzI-115" style="group;align=left;fontSize=13;" value="" vertex="1">
+          <mxGeometry height="672" width="962" x="48" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-75" connectable="0" parent="r5taLkxgRbsk03CEcrzI-78" style="group;strokeWidth=3;strokeColor=default;fontSize=13;" value="" vertex="1">
+          <mxGeometry height="672" width="576" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-74" parent="r5taLkxgRbsk03CEcrzI-78" style="text;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=13;fontStyle=1;align=center;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Node-RED&amp;nbsp;&lt;br&gt;&lt;font&gt;IP:192.168.10.11&amp;nbsp;&lt;/font&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="77.53846153846155" width="336" x="45" y="554.23" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-73" parent="r5taLkxgRbsk03CEcrzI-78" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#7AA116;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=13;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.iot_device_gateway;" value="" vertex="1">
+          <mxGeometry height="253" width="270.33" x="85.66911712148288" y="298.22769230769234" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-112" parent="r5taLkxgRbsk03CEcrzI-78" style="image;html=1;image=img/lib/clip_art/networking/Switch_128x128.png;fontSize=13;" value="" vertex="1">
+          <mxGeometry height="160" width="240" x="100.83000000000001" y="34.46" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-114" parent="r5taLkxgRbsk03CEcrzI-78" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontStyle=1;fontSize=16;" value="&lt;font&gt;Core Switch Hub&lt;/font&gt;&lt;div&gt;&lt;font&gt;IP:&amp;nbsp;192.168.10.10&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="48.46153846153846" width="236" x="324" y="146.00230769230768" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-117" edge="1" parent="r5taLkxgRbsk03CEcrzI-78" style="endArrow=classic;html=1;rounded=0;strokeWidth=7;exitX=0.464;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;fontSize=13;" target="r5taLkxgRbsk03CEcrzI-73" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="219.35999999999967" y="202.23" as="sourcePoint" />
+            <mxPoint x="228" y="282.23" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-125" parent="r5taLkxgRbsk03CEcrzI-78" style="text;whiteSpace=wrap;html=1;fontSize=13;fontStyle=1" value="Ethernet (LAN)" vertex="1">
+          <mxGeometry height="48" width="128" x="228" y="232.23" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-116" parent="r5taLkxgRbsk03CEcrzI-78" style="text;whiteSpace=wrap;html=1;fontSize=13;" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;- BACnet Client&lt;br&gt;- Protocol Conversion&lt;br&gt;- Data Processing&lt;br&gt;- MQTT Publisher&lt;/font&gt;" vertex="1">
+          <mxGeometry height="112" width="240" x="320" y="537" as="geometry" />
+        </mxCell>
+        <mxCell id="-0Fi_CNxApt5DIXrYPyy-4" connectable="0" parent="r5taLkxgRbsk03CEcrzI-78" style="group" value="" vertex="1">
+          <mxGeometry height="208" width="213" x="749" y="194" as="geometry" />
+        </mxCell>
+        <mxCell id="-0Fi_CNxApt5DIXrYPyy-3" parent="-0Fi_CNxApt5DIXrYPyy-4" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#7AA116;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=20;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.mqtt_protocol;" value="" vertex="1">
+          <mxGeometry height="208" width="208" as="geometry" />
+        </mxCell>
+        <mxCell id="-0Fi_CNxApt5DIXrYPyy-2" parent="-0Fi_CNxApt5DIXrYPyy-4" style="text;whiteSpace=wrap;html=1;fontSize=20;fontStyle=1" value="&lt;span&gt;MQTT Broker&lt;/span&gt;&lt;br&gt;&lt;span&gt;IP: 192.168.10.12&lt;/span&gt;&lt;br&gt;&lt;span&gt;Port: 1883&lt;/span&gt;" vertex="1">
+          <mxGeometry height="96" width="192" x="21" y="32" as="geometry" />
+        </mxCell>
+        <mxCell id="-0Fi_CNxApt5DIXrYPyy-5" edge="1" parent="r5taLkxgRbsk03CEcrzI-78" style="endArrow=classic;html=1;rounded=0;strokeWidth=7;exitX=0.464;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;fontSize=13;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="605" y="306" as="sourcePoint" />
+            <mxPoint x="701" y="306" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="-0Fi_CNxApt5DIXrYPyy-6" parent="r5taLkxgRbsk03CEcrzI-78" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontStyle=1;fontSize=20;" value="MQTT Protocol" vertex="1">
+          <mxGeometry height="30" width="163" x="576" y="268.23" as="geometry" />
+        </mxCell>
+        <mxCell id="r5taLkxgRbsk03CEcrzI-129" parent="r5taLkxgRbsk03CEcrzI-95" style="text;whiteSpace=wrap;html=1;fontSize=24;fontStyle=1" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Helvetica; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(236, 236, 236); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline !important;&quot;&gt;Edge Computing Gateway&lt;/span&gt;" vertex="1">
+          <mxGeometry height="64" width="320" x="1540" y="222" as="geometry" />
+        </mxCell>
+        <mxCell id="-0Fi_CNxApt5DIXrYPyy-1" parent="r5taLkxgRbsk03CEcrzI-95" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;fontColor=#000000;darkOpacity=0.05;fillColor=#FFF9B2;strokeColor=none;fillStyle=solid;direction=west;gradientDirection=north;gradientColor=#FFF2A1;shadow=1;size=20;autosizeText=1;fontSize=22;align=left;" value="&lt;div&gt;&lt;div&gt;&lt;span&gt;BACnet/IP devices are integrated into the IP network through floor, plant, and core network switches.&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;Node-RED acts as the edge gateway for BACnet data collection and processing.&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;Note:&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;BACnet device instances must be unique within the BACnet network.&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;All devices communicate via BACnet/IP (UDP 47808) over the same subnet.&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;Example data points: Temperature, Humidity, Airflow, Power, Run Status&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;All devices are within subnet: 192.168.10.0/24&lt;span&gt;&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="224" width="1059" x="1261" y="958" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

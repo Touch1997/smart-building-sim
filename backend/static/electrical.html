@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Electrical Distribution</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f4f6f8;
+            color: #1f2937;
+        }
+
+        header {
+            background: #0f172a;
+            color: white;
+            padding: 20px 24px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        .navbar {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #0f172a;
+            background: white;
+            border: 1px solid #cbd5e1;
+            border-radius: 10px;
+            padding: 10px 16px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .navbar a:hover {
+            background: #e2e8f0;
+            border-color: #94a3b8;
+        }
+
+        .navbar a.active {
+            background: #0f172a;
+            color: white;
+            border-color: #0f172a;
+        }
+
+        .toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .muted {
+            color: #94a3b8;
+            font-size: 13px;
+        }
+
+        .selector {
+            padding: 10px 14px;
+            border-radius: 10px;
+            border: 1px solid #cbd5e1;
+            background: white;
+            min-width: 160px;
+        }
+
+        .selector-group {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .grid {
+            display: grid;
+            gap: 16px;
+        }
+
+        .kpi-grid {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            margin-bottom: 20px;
+        }
+
+        .floor-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            margin-bottom: 20px;
+        }
+
+        .equipment-section {
+            margin-bottom: 20px;
+        }
+
+        .equipment-group-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #334155;
+            margin: 0 0 10px 0;
+            padding-left: 4px;
+        }
+
+        .equipment-grid {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            margin-bottom: 14px;
+        }
+
+        .equipment-grid.four-col {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 18px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .card h3 {
+            margin: 0 0 10px 0;
+            font-size: 16px;
+            color: #334155;
+        }
+
+        .equipment-card h3 {
+            font-size: 15px;
+            margin-bottom: 8px;
+        }
+
+        .value {
+            font-size: 28px;
+            font-weight: bold;
+            line-height: 1.2;
+        }
+
+        .subline {
+            font-size: 12px;
+            color: #64748b;
+            margin-top: 6px;
+        }
+
+        .section-title {
+            font-size: 22px;
+            margin: 24px 0 12px 0;
+            color: #0f172a;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        td {
+            padding: 8px 0;
+            border-bottom: 1px solid #e5e7eb;
+            vertical-align: top;
+        }
+
+        td:last-child {
+            text-align: right;
+            font-weight: bold;
+        }
+
+        .chart-card {
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 1300px) {
+            .equipment-grid,
+            .equipment-grid.four-col {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 1100px) {
+            .kpi-grid,
+            .floor-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 700px) {
+            .kpi-grid,
+            .floor-grid,
+            .equipment-grid,
+            .equipment-grid.four-col {
+                grid-template-columns: 1fr;
+            }
+
+            .selector {
+                width: 100%;
+            }
+
+            .selector-group {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Electrical Distribution</h1>
+    </header>
+
+    <div class="container">
+        <div class="navbar" id="topNav">
+            <a href="/dashboard" data-path="/dashboard">Main</a>
+            <a href="/dashboard/chiller" data-path="/dashboard/chiller">Chiller</a>
+            <a href="/dashboard/air" data-path="/dashboard/air">Air</a>
+            <a href="/dashboard/electrical" data-path="/dashboard/electrical">Electrical</a>
+        </div>
+
+        <div class="toolbar">
+            <div class="muted">Time selector for electrical analytics and trend</div>
+
+            <div class="selector-group">
+                <select id="timeRangeSelect" class="selector">
+                    <option value="1h">Last Hour</option>
+                    <option value="24h" selected>Last Day</option>
+                    <option value="7d">Last Week</option>
+                    <option value="30d">Last Month</option>
+                    <option value="365d">Last Year</option>
+                </select>
+
+                <select id="metricSelect" class="selector">
+                    <option value="power" selected>Trend: Power (kW)</option>
+                    <option value="energy">Trend: Energy (kWh)</option>
+                    <option value="current">Trend: Current (A)</option>
+                    <option value="power_factor">Trend: Power Factor</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="section-title">Electrical Overview</div>
+        <div class="grid kpi-grid">
+            <div class="card">
+                <h3>Main Power</h3>
+                <div class="value" id="mainPower">-</div>
+                <div class="subline" id="latestUpdate">-</div>
+            </div>
+
+            <div class="card">
+                <h3>Main Energy Consumption</h3>
+                <div class="value" id="mainEnergy">-</div>
+                <div class="subline">Delta from main meter over selected range</div>
+            </div>
+
+            <div class="card">
+                <h3>Total Floor Energy</h3>
+                <div class="value" id="totalFloorEnergy">-</div>
+                <div class="subline">Sum of floor meter energy over selected range</div>
+            </div>
+
+            <div class="card">
+                <h3>Avg Power Factor</h3>
+                <div class="value" id="avgPowerFactor">-</div>
+                <div class="subline">Average of main and floor power factors</div>
+            </div>
+        </div>
+
+        <div class="section-title">Consumption Breakdown per Floor</div>
+        <div class="grid floor-grid" id="floorCards"></div>
+
+        <div class="section-title">Individual Equipment Power and Energy Monitoring</div>
+        <div id="equipmentSections"></div>
+
+        <div class="section-title">Electrical Trend</div>
+        <div class="card chart-card">
+            <canvas id="electricalTrendChart" height="100"></canvas>
+        </div>
+    </div>
+
+    <script>
+        let electricalTrendChart = null;
+
+        function setActiveNav() {
+            const currentPath = window.location.pathname;
+            document.querySelectorAll("#topNav a").forEach(link => {
+                if (link.dataset.path === currentPath) {
+                    link.classList.add("active");
+                } else {
+                    link.classList.remove("active");
+                }
+            });
+        }
+
+        function toDateSafe(ts) {
+            if (!ts) return null;
+            const d = new Date(ts);
+            if (!Number.isNaN(d.getTime())) return d;
+            return null;
+        }
+
+        function formatDateTimeTH(ts) {
+            const d = toDateSafe(ts);
+            if (!d) return "-";
+            return d.toLocaleString("th-TH", {
+                year: "numeric",
+                month: "2-digit",
+                day: "2-digit",
+                hour: "2-digit",
+                minute: "2-digit",
+                second: "2-digit"
+            });
+        }
+
+        function toChartLabelTH(ts) {
+            const d = toDateSafe(ts);
+            if (!d) return "-";
+            return d.toLocaleString("th-TH", {
+                month: "2-digit",
+                day: "2-digit",
+                hour: "2-digit",
+                minute: "2-digit"
+            });
+        }
+
+        async function fetchElectricalSummary(range) {
+            const res = await fetch(`/api/electrical/summary?range=${encodeURIComponent(range)}`);
+            if (!res.ok) throw new Error("Failed to fetch electrical summary");
+            return await res.json();
+        }
+
+        async function fetchElectricalTrend(range, metric) {
+            const res = await fetch(`/api/electrical/trend?range=${encodeURIComponent(range)}&metric=${encodeURIComponent(metric)}`);
+            if (!res.ok) throw new Error("Failed to fetch electrical trend");
+            return await res.json();
+        }
+
+        function formatNumber(val, digits = 2) {
+            if (val === null || val === undefined || Number.isNaN(Number(val))) return "-";
+            return Number(val).toFixed(digits);
+        }
+
+        function getMeter(summary, name) {
+            return summary?.meters?.[name] || {};
+        }
+
+        function getEnergyDelta(summary, name) {
+            const v = summary?.energy_delta?.[name];
+            return v === undefined ? null : v;
+        }
+
+        function renderSummary(summary) {
+            const mainMeter = getMeter(summary, "main_meter_1");
+            const floorMeters = [
+                getMeter(summary, "floor_meter_1"),
+                getMeter(summary, "floor_meter_2"),
+                getMeter(summary, "floor_meter_3"),
+                getMeter(summary, "floor_meter_4")
+            ];
+
+            const pfValues = [mainMeter.power_factor, ...floorMeters.map(m => m.power_factor)]
+                .filter(v => v !== null && v !== undefined && !Number.isNaN(Number(v)))
+                .map(Number);
+
+            const avgPf = pfValues.length
+                ? pfValues.reduce((a, b) => a + b, 0) / pfValues.length
+                : null;
+
+            document.getElementById("mainPower").textContent =
+                mainMeter.power !== null && mainMeter.power !== undefined
+                    ? `${formatNumber(mainMeter.power)} kW`
+                    : "-";
+
+            document.getElementById("mainEnergy").textContent =
+                getEnergyDelta(summary, "main_meter_1") !== null
+                    ? `${formatNumber(getEnergyDelta(summary, "main_meter_1"))} kWh`
+                    : "-";
+
+            document.getElementById("totalFloorEnergy").textContent =
+                (() => {
+                    const floorEnergy = [1, 2, 3, 4]
+                        .map(i => getEnergyDelta(summary, `floor_meter_${i}`))
+                        .filter(v => v !== null && v !== undefined)
+                        .map(Number);
+                    if (!floorEnergy.length) return "-";
+                    const total = floorEnergy.reduce((a, b) => a + b, 0);
+                    return `${formatNumber(total)} kWh`;
+                })();
+
+            document.getElementById("avgPowerFactor").textContent =
+                avgPf !== null ? formatNumber(avgPf, 3) : "-";
+
+            document.getElementById("latestUpdate").textContent =
+                summary.period_end
+                    ? `Period end: ${formatDateTimeTH(summary.period_end)}`
+                    : "-";
+        }
+
+        function renderFloorCards(summary) {
+            const container = document.getElementById("floorCards");
+            container.innerHTML = "";
+
+            for (let floor = 1; floor <= 4; floor++) {
+                const meterName = `floor_meter_${floor}`;
+                const meter = getMeter(summary, meterName);
+                const energyDelta = getEnergyDelta(summary, meterName);
+
+                const card = document.createElement("div");
+                card.className = "card";
+                card.innerHTML = `
+                    <h3>Floor ${floor}</h3>
+                    <table>
+                        <tr>
+                            <td>Power</td>
+                            <td>${formatNumber(meter.power)} kW</td>
+                        </tr>
+                        <tr>
+                            <td>Energy</td>
+                            <td>${energyDelta !== null ? `${formatNumber(energyDelta)} kWh` : "-"}</td>
+                        </tr>
+                        <tr>
+                            <td>Current</td>
+                            <td>${formatNumber(meter.current)} A</td>
+                        </tr>
+                        <tr>
+                            <td>Power Factor</td>
+                            <td>${formatNumber(meter.power_factor, 3)}</td>
+                        </tr>
+                    </table>
+                `;
+                container.appendChild(card);
+            }
+        }
+
+        function createEquipmentCard(summary, cfg) {
+            const meter = getMeter(summary, cfg.meter);
+            const energyDelta = getEnergyDelta(summary, cfg.meter);
+            const card = document.createElement("div");
+            card.className = "card equipment-card";
+            card.innerHTML = `
+                <h3>${cfg.label}</h3>
+                <table>
+                    <tr>
+                        <td>Power</td>
+                        <td>${formatNumber(meter.power)} kW</td>
+                    </tr>
+                    <tr>
+                        <td>Energy</td>
+                        <td>${energyDelta !== null ? `${formatNumber(energyDelta)} kWh` : "-"}</td>
+                    </tr>
+                    <tr>
+                        <td>Current</td>
+                        <td>${formatNumber(meter.current)} A</td>
+                    </tr>
+                    <tr>
+                        <td>Voltage L-L Avg</td>
+                        <td>${formatNumber(meter.voltage_LL_average)} V</td>
+                    </tr>
+                    <tr>
+                        <td>Power Factor</td>
+                        <td>${formatNumber(meter.power_factor, 3)}</td>
+                    </tr>
+                </table>
+            `;
+            return card;
+        }
+
+        function renderEquipmentCards(summary) {
+            const container = document.getElementById("equipmentSections");
+            container.innerHTML = "";
+
+            const equipmentGroups = [
+                {
+                    title: "Chillers",
+                    gridClass: "equipment-grid",
+                    items: [
+                        { meter: "chiller_meter_1", label: "CH-1" },
+                        { meter: "chiller_meter_2", label: "CH-2" },
+                        { meter: "chiller_meter_3", label: "CH-3" }
+                    ]
+                },
+                {
+                    title: "CHW Pumps",
+                    gridClass: "equipment-grid",
+                    items: [
+                        { meter: "chwp_meter_1", label: "CHWP-1" },
+                        { meter: "chwp_meter_2", label: "CHWP-2" },
+                        { meter: "chwp_meter_3", label: "CHWP-3" }
+                    ]
+                },
+                {
+                    title: "Condenser Pumps",
+                    gridClass: "equipment-grid",
+                    items: [
+                        { meter: "cdp_meter_1", label: "CDP-1" },
+                        { meter: "cdp_meter_2", label: "CDP-2" },
+                        { meter: "cdp_meter_3", label: "CDP-3" }
+                    ]
+                },
+                {
+                    title: "Cooling Towers",
+                    gridClass: "equipment-grid",
+                    items: [
+                        { meter: "ct_meter_1", label: "CT-1" },
+                        { meter: "ct_meter_2", label: "CT-2" },
+                        { meter: "ct_meter_3", label: "CT-3" }
+                    ]
+                },
+                {
+                    title: "AHU Meters",
+                    gridClass: "equipment-grid four-col",
+                    items: [
+                        { meter: "ahu_meter_1", label: "AHU-1" },
+                        { meter: "ahu_meter_2", label: "AHU-2" },
+                        { meter: "ahu_meter_3", label: "AHU-3" },
+                        { meter: "ahu_meter_4", label: "AHU-4" }
+                    ]
+                }
+            ];
+
+            equipmentGroups.forEach(group => {
+                const section = document.createElement("div");
+                section.className = "equipment-section";
+
+                const title = document.createElement("div");
+                title.className = "equipment-group-title";
+                title.textContent = group.title;
+                section.appendChild(title);
+
+                const grid = document.createElement("div");
+                grid.className = `grid ${group.gridClass}`;
+
+                group.items.forEach(cfg => {
+                    grid.appendChild(createEquipmentCard(summary, cfg));
+                });
+
+                section.appendChild(grid);
+                container.appendChild(section);
+            });
+        }
+
+        function metricLabel(metric) {
+            if (metric === "power") return "Power (kW)";
+            if (metric === "energy") return "Energy (kWh)";
+            if (metric === "current") return "Current (A)";
+            if (metric === "power_factor") return "Power Factor";
+            return metric;
+        }
+
+        function buildUnifiedTrendData(trendData) {
+            const datasetsFromApi = trendData.datasets || {};
+            const orderedDevices = [
+                "main_meter_1",
+                "floor_meter_1",
+                "floor_meter_2",
+                "floor_meter_3",
+                "floor_meter_4"
+            ];
+
+            const allTs = new Set();
+            const valueMaps = {
+                main_meter_1: {},
+                floor_meter_1: {},
+                floor_meter_2: {},
+                floor_meter_3: {},
+                floor_meter_4: {}
+            };
+
+            orderedDevices.forEach(device => {
+                const points = datasetsFromApi[device] || [];
+                points.forEach(p => {
+                    const key = p.ts;
+                    allTs.add(key);
+                    valueMaps[device][key] = p.value === null || p.value === undefined ? null : Number(p.value);
+                });
+            });
+
+            const sortedTs = Array.from(allTs).sort((a, b) => new Date(a) - new Date(b));
+            const labels = sortedTs.map(ts => toChartLabelTH(ts));
+
+            return {
+                sortedTs,
+                labels,
+                valueMaps
+            };
+        }
+
+        function renderTrend(trendData) {
+            const metric = trendData.metric;
+            const unified = buildUnifiedTrendData(trendData);
+
+            const datasetConfig = [
+                { key: "main_meter_1", label: "Main" },
+                { key: "floor_meter_1", label: "Floor 1" },
+                { key: "floor_meter_2", label: "Floor 2" },
+                { key: "floor_meter_3", label: "Floor 3" },
+                { key: "floor_meter_4", label: "Floor 4" }
+            ];
+
+            const datasets = datasetConfig.map(cfg => {
+                return {
+                    label: `${cfg.label} ${metricLabel(metric)}`,
+                    data: unified.sortedTs.map(ts => {
+                        const v = unified.valueMaps[cfg.key][ts];
+                        return v !== undefined ? v : null;
+                    }),
+                    borderWidth: 2,
+                    tension: 0.25,
+                    spanGaps: true,
+                    pointRadius: 2,
+                    pointHoverRadius: 4
+                };
+            });
+
+            if (electricalTrendChart) {
+                electricalTrendChart.destroy();
+            }
+
+            const ctx = document.getElementById("electricalTrendChart").getContext("2d");
+            electricalTrendChart = new Chart(ctx, {
+                type: "line",
+                data: {
+                    labels: unified.labels,
+                    datasets
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    interaction: {
+                        mode: "index",
+                        intersect: false
+                    },
+                    elements: {
+                        line: {
+                            spanGaps: true
+                        }
+                    },
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                title(items) {
+                                    if (!items.length) return "";
+                                    const idx = items[0].dataIndex;
+                                    const ts = unified.sortedTs[idx];
+                                    return formatDateTimeTH(ts);
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        async function loadElectricalDashboard() {
+            try {
+                const range = document.getElementById("timeRangeSelect").value;
+                const metric = document.getElementById("metricSelect").value;
+
+                const [summary, trend] = await Promise.all([
+                    fetchElectricalSummary(range),
+                    fetchElectricalTrend(range, metric)
+                ]);
+
+                renderSummary(summary);
+                renderFloorCards(summary);
+                renderEquipmentCards(summary);
+                renderTrend(trend);
+            } catch (error) {
+                console.error("Electrical dashboard load error:", error);
+            }
+        }
+
+        setActiveNav();
+        document.getElementById("timeRangeSelect").addEventListener("change", loadElectricalDashboard);
+        document.getElementById("metricSelect").addEventListener("change", loadElectricalDashboard);
+
+        loadElectricalDashboard();
+        setInterval(loadElectricalDashboard, 10000);
+    </script>
+</body>
+</html>

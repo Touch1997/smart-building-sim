@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HVAC Main Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f4f6f8;
+            color: #1f2937;
+        }
+        header {
+            background: #0f172a;
+            color: white;
+            padding: 20px 24px;
+        }
+        h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+        .container { padding: 20px; }
+        .navbar {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+        .navbar a {
+            text-decoration: none;
+            color: #0f172a;
+            background: white;
+            border: 1px solid #cbd5e1;
+            border-radius: 10px;
+            padding: 10px 16px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+        .navbar a:hover {
+            background: #e2e8f0;
+            border-color: #94a3b8;
+        }
+        .navbar a.active {
+            background: #0f172a;
+            color: white;
+            border-color: #0f172a;
+        }
+        .toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        .muted {
+            color: #94a3b8;
+            font-size: 13px;
+        }
+        .selector {
+            padding: 10px 14px;
+            border-radius: 10px;
+            border: 1px solid #cbd5e1;
+            background: white;
+            min-width: 160px;
+        }
+        .grid {
+            display: grid;
+            gap: 16px;
+        }
+        .kpi-grid {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            margin-bottom: 20px;
+        }
+        .floor-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            margin-top: 12px;
+        }
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 18px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        .card h3 {
+            margin: 0 0 10px 0;
+            font-size: 14px;
+            color: #64748b;
+        }
+        .value {
+            font-size: 28px;
+            font-weight: bold;
+            line-height: 1.2;
+        }
+        .subline {
+            font-size: 12px;
+            color: #64748b;
+            margin-top: 6px;
+        }
+        .section-title {
+            font-size: 22px;
+            margin: 24px 0 12px 0;
+            color: #0f172a;
+        }
+        .chart-card {
+            margin-bottom: 20px;
+        }
+        .floor-card table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+        .floor-card td {
+            padding: 8px 0;
+            border-bottom: 1px solid #e5e7eb;
+            vertical-align: top;
+        }
+        .floor-card td:last-child {
+            text-align: right;
+            font-weight: bold;
+        }
+        @media (max-width: 1100px) {
+            .kpi-grid, .floor-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+        @media (max-width: 700px) {
+            .kpi-grid, .floor-grid {
+                grid-template-columns: 1fr;
+            }
+            .selector {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>HVAC Main Dashboard</h1>
+    </header>
+
+    <div class="container">
+        <div class="navbar" id="topNav">
+            <a href="/dashboard" data-path="/dashboard">Main</a>
+            <a href="/dashboard/chiller" data-path="/dashboard/chiller">Chiller</a>
+            <a href="/dashboard/air" data-path="/dashboard/air">Air</a>
+            <a href="/dashboard/electrical" data-path="/dashboard/electrical">Electrical</a>
+        </div>
+
+        <div class="toolbar">
+            <div class="muted">Time selector for analytics and trend</div>
+            <select id="timeRangeSelect" class="selector">
+                <option value="1h">Last Hour</option>
+                <option value="24h" selected>Last Day</option>
+                <option value="7d">Last Week</option>
+                <option value="30d">Last Month</option>
+                <option value="365d">Last Year</option>
+            </select>
+        </div>
+
+        <div class="grid kpi-grid">
+            <div class="card">
+                <h3>Main Power (Current)</h3>
+                <div class="value" id="mainPower">-</div>
+                <div class="subline" id="lastUpdate">-</div>
+            </div>
+
+            <div class="card">
+                <h3>Avg Main Power</h3>
+                <div class="value" id="avgMainPower">-</div>
+                <div class="subline">Over selected time range</div>
+            </div>
+
+            <div class="card">
+                <h3>Peak Demand</h3>
+                <div class="value" id="peakPower">-</div>
+                <div class="subline">Maximum main power in selected range</div>
+            </div>
+
+            <div class="card">
+                <h3>Main Energy Consumption</h3>
+                <div class="value" id="mainEnergyConsumption">-</div>
+                <div class="subline">Delta from main energy meter over selected range</div>
+            </div>
+        </div>
+
+        <div class="grid kpi-grid">
+            <div class="card">
+                <h3>Total Floor Energy</h3>
+                <div class="value" id="totalFloorEnergy">-</div>
+                <div class="subline">Sum of floor meter energy over selected range</div>
+            </div>
+
+            <div class="card">
+                <h3>Avg Indoor Temp</h3>
+                <div class="value" id="avgTemp">-</div>
+                <div class="subline">Average IAQ temperature in selected range</div>
+            </div>
+
+            <div class="card">
+                <h3>Avg CO₂</h3>
+                <div class="value" id="avgCo2">-</div>
+                <div class="subline">Average IAQ CO₂ in selected range</div>
+            </div>
+
+            <div class="card">
+                <h3>Avg PM2.5</h3>
+                <div class="value" id="avgPm25">-</div>
+                <div class="subline">Average IAQ PM2.5 in selected range</div>
+            </div>
+        </div>
+
+        <div class="section-title">Main Power Trend</div>
+        <div class="card chart-card">
+            <canvas id="mainPowerChart" height="100"></canvas>
+        </div>
+
+        <div class="section-title">Average CO₂ Trend by Floor</div>
+        <div class="card chart-card">
+            <canvas id="co2TrendChart" height="100"></canvas>
+        </div>
+
+        <div class="section-title">Average PM2.5 Trend by Floor</div>
+        <div class="card chart-card">
+            <canvas id="pm25TrendChart" height="100"></canvas>
+        </div>
+
+        <div class="section-title">IAQ Analytics by Floor</div>
+        <div class="muted">Average / Minimum / Maximum over selected time range</div>
+        <div class="grid floor-grid" id="floorCards"></div>
+    </div>
+
+    <script>
+        let powerChart = null;
+        let co2TrendChart = null;
+        let pm25TrendChart = null;
+
+        function setActiveNav() {
+            const currentPath = window.location.pathname;
+            document.querySelectorAll("#topNav a").forEach(link => {
+                if (link.dataset.path === currentPath) {
+                    link.classList.add("active");
+                } else {
+                    link.classList.remove("active");
+                }
+            });
+        }
+
+        function toDateSafe(ts) {
+            if (!ts) return null;
+            const d = new Date(ts);
+            if (!Number.isNaN(d.getTime())) return d;
+            return null;
+        }
+
+        function formatDateTimeTH(ts) {
+            const d = toDateSafe(ts);
+            if (!d) return "-";
+            return d.toLocaleString("th-TH", {
+                year: "numeric",
+                month: "2-digit",
+                day: "2-digit",
+                hour: "2-digit",
+                minute: "2-digit",
+                second: "2-digit"
+            });
+        }
+
+        function toChartLabelTH(ts) {
+            const d = toDateSafe(ts);
+            if (!d) return "-";
+            return d.toLocaleString("th-TH", {
+                month: "2-digit",
+                day: "2-digit",
+                hour: "2-digit",
+                minute: "2-digit"
+            });
+        }
+
+        async function fetchSummary(range) {
+            const res = await fetch(`/api/main-dashboard/summary?range=${encodeURIComponent(range)}`);
+            if (!res.ok) throw new Error("Failed to fetch summary");
+            return await res.json();
+        }
+
+        async function fetchFloorIAQ(range) {
+            const res = await fetch(`/api/main-dashboard/floor-iaq?range=${encodeURIComponent(range)}`);
+            if (!res.ok) throw new Error("Failed to fetch floor iaq");
+            return await res.json();
+        }
+
+        async function fetchPowerTrend(range) {
+            const res = await fetch(`/api/main-dashboard/power-trend?range=${encodeURIComponent(range)}`);
+            if (!res.ok) throw new Error("Failed to fetch power trend");
+            return await res.json();
+        }
+
+        async function fetchCo2Trend(range) {
+            const res = await fetch(`/api/main-dashboard/co2-trend?range=${encodeURIComponent(range)}`);
+            if (!res.ok) throw new Error("Failed to fetch CO2 trend");
+            return await res.json();
+        }
+
+        async function fetchPm25Trend(range) {
+            const res = await fetch(`/api/main-dashboard/pm25-trend?range=${encodeURIComponent(range)}`);
+            if (!res.ok) throw new Error("Failed to fetch PM2.5 trend");
+            return await res.json();
+        }
+
+        function formatNumber(val, digits = 2) {
+            if (val === null || val === undefined || Number.isNaN(Number(val))) return "-";
+            return Number(val).toFixed(digits);
+        }
+
+        function renderKPIs(summary) {
+            document.getElementById("mainPower").textContent =
+                summary.latest_main_power !== null && summary.latest_main_power !== undefined
+                    ? `${formatNumber(summary.latest_main_power)} kW`
+                    : "-";
+
+            document.getElementById("lastUpdate").textContent =
+                summary.latest_main_power_ts
+                    ? `Last update: ${formatDateTimeTH(summary.latest_main_power_ts)}`
+                    : "-";
+
+            document.getElementById("avgMainPower").textContent =
+                summary.avg_main_power !== null && summary.avg_main_power !== undefined
+                    ? `${formatNumber(summary.avg_main_power)} kW`
+                    : "-";
+
+            document.getElementById("peakPower").textContent =
+                summary.peak_main_power !== null && summary.peak_main_power !== undefined
+                    ? `${formatNumber(summary.peak_main_power)} kW`
+                    : "-";
+
+            document.getElementById("mainEnergyConsumption").textContent =
+                summary.main_energy_consumption !== null && summary.main_energy_consumption !== undefined
+                    ? `${formatNumber(summary.main_energy_consumption)} kWh`
+                    : "-";
+
+            document.getElementById("totalFloorEnergy").textContent =
+                summary.total_floor_energy !== null && summary.total_floor_energy !== undefined
+                    ? `${formatNumber(summary.total_floor_energy)} kWh`
+                    : "-";
+
+            document.getElementById("avgTemp").textContent =
+                summary.avg_temp !== null && summary.avg_temp !== undefined
+                    ? `${formatNumber(summary.avg_temp)} °C`
+                    : "-";
+
+            document.getElementById("avgCo2").textContent =
+                summary.avg_co2 !== null && summary.avg_co2 !== undefined
+                    ? `${formatNumber(summary.avg_co2)} ppm`
+                    : "-";
+
+            document.getElementById("avgPm25").textContent =
+                summary.avg_pm25 !== null && summary.avg_pm25 !== undefined
+                    ? `${formatNumber(summary.avg_pm25)} µg/m³`
+                    : "-";
+        }
+
+        function rangeText(avg, min, max, unit) {
+            return `${formatNumber(avg)} ${unit} <br><span class="muted">min ${formatNumber(min)} / max ${formatNumber(max)}</span>`;
+        }
+
+        function renderFloorCards(floorData) {
+            const floorCards = document.getElementById("floorCards");
+            floorCards.innerHTML = "";
+
+            for (let floor = 1; floor <= 4; floor++) {
+                const row = floorData.find(x => x.floor === floor);
+                const card = document.createElement("div");
+                card.className = "card floor-card";
+
+                if (!row) {
+                    card.innerHTML = `
+                        <h3>Floor ${floor}</h3>
+                        <div class="muted">No IAQ data</div>
+                    `;
+                } else {
+                    card.innerHTML = `
+                        <h3>Floor ${floor}</h3>
+                        <table>
+                            <tr>
+                                <td>Temperature</td>
+                                <td>${rangeText(row.avg_temp, row.min_temp, row.max_temp, "°C")}</td>
+                            </tr>
+                            <tr>
+                                <td>Humidity</td>
+                                <td>${rangeText(row.avg_humidity, row.min_humidity, row.max_humidity, "%")}</td>
+                            </tr>
+                            <tr>
+                                <td>CO₂</td>
+                                <td>${rangeText(row.avg_co2, row.min_co2, row.max_co2, "ppm")}</td>
+                            </tr>
+                            <tr>
+                                <td>PM2.5</td>
+                                <td>${rangeText(row.avg_pm25, row.min_pm25, row.max_pm25, "µg/m³")}</td>
+                            </tr>
+                        </table>
+                    `;
+                }
+
+                floorCards.appendChild(card);
+            }
+        }
+
+        function buildUnifiedFloorTrendData(trendData) {
+            const datasetsFromApi = trendData.datasets || {};
+            const orderedFloors = ["floor_1", "floor_2", "floor_3", "floor_4"];
+
+            const allTs = new Set();
+            const valueMaps = {
+                floor_1: {},
+                floor_2: {},
+                floor_3: {},
+                floor_4: {}
+            };
+
+            orderedFloors.forEach(floor => {
+                const points = datasetsFromApi[floor] || [];
+                points.forEach(p => {
+                    allTs.add(p.ts);
+                    valueMaps[floor][p.ts] =
+                        p.value === null || p.value === undefined ? null : Number(p.value);
+                });
+            });
+
+            const sortedTs = Array.from(allTs).sort((a, b) => new Date(a) - new Date(b));
+            const labels = sortedTs.map(ts => toChartLabelTH(ts));
+
+            return {
+                sortedTs,
+                labels,
+                valueMaps
+            };
+        }
+
+        function renderPowerChart(historyData) {
+            const labels = historyData.map(x => toChartLabelTH(x.ts));
+            const values = historyData.map(x => Number(x.value));
+
+            if (powerChart) {
+                powerChart.destroy();
+            }
+
+            const ctx = document.getElementById("mainPowerChart").getContext("2d");
+            powerChart = new Chart(ctx, {
+                type: "line",
+                data: {
+                    labels,
+                    datasets: [{
+                        label: "Main Power (kW)",
+                        data: values,
+                        borderWidth: 2,
+                        tension: 0.2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true
+                }
+            });
+        }
+
+        function renderCo2Chart(trendData) {
+            const unified = buildUnifiedFloorTrendData(trendData);
+
+            const datasets = [
+                {
+                    label: "Floor 1 CO₂",
+                    data: unified.sortedTs.map(ts => unified.valueMaps.floor_1[ts] ?? null),
+                    borderWidth: 2,
+                    tension: 0.25,
+                    spanGaps: true,
+                    pointRadius: 2
+                },
+                {
+                    label: "Floor 2 CO₂",
+                    data: unified.sortedTs.map(ts => unified.valueMaps.floor_2[ts] ?? null),
+                    borderWidth: 2,
+                    tension: 0.25,
+                    spanGaps: true,
+                    pointRadius: 2
+                },
+                {
+                    label: "Floor 3 CO₂",
+                    data: unified.sortedTs.map(ts => unified.valueMaps.floor_3[ts] ?? null),
+                    borderWidth: 2,
+                    tension: 0.25,
+                    spanGaps: true,
+                    pointRadius: 2
+                },
+                {
+                    label: "Floor 4 CO₂",
+                    data: unified.sortedTs.map(ts => unified.valueMaps.floor_4[ts] ?? null),
+                    borderWidth: 2,
+                    tension: 0.25,
+                    spanGaps: true,
+                    pointRadius: 2
+                }
+            ];
+
+            if (co2TrendChart) {
+                co2TrendChart.destroy();
+            }
+
+            const ctx = document.getElementById("co2TrendChart").getContext("2d");
+            co2TrendChart = new Chart(ctx, {
+                type: "line",
+                data: {
+                    labels: unified.labels,
+                    datasets
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    interaction: {
+                        mode: "index",
+                        intersect: false
+                    },
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                title(items) {
+                                    if (!items.length) return "";
+                                    const idx = items[0].dataIndex;
+                                    return formatDateTimeTH(unified.sortedTs[idx]);
+                                }
+                            }
+                        }
+                    },
+                    elements: {
+                        line: {
+                            spanGaps: true
+                        }
+                    },
+                    scales: {
+                        y: {
+                            title: {
+                                display: true,
+                                text: "CO₂ (ppm)"
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function renderPm25Chart(trendData) {
+            const unified = buildUnifiedFloorTrendData(trendData);
+
+            const datasets = [
+                {
+                    label: "Floor 1 PM2.5",
+                    data: unified.sortedTs.map(ts => unified.valueMaps.floor_1[ts] ?? null),
+                    borderWidth: 2,
+                    tension: 0.25,
+                    spanGaps: true,
+                    pointRadius: 2
+                },
+                {
+                    label: "Floor 2 PM2.5",
+                    data: unified.sortedTs.map(ts => unified.valueMaps.floor_2[ts] ?? null),
+                    borderWidth: 2,
+                    tension: 0.25,
+                    spanGaps: true,
+                    pointRadius: 2
+                },
+                {
+                    label: "Floor 3 PM2.5",
+                    data: unified.sortedTs.map(ts => unified.valueMaps.floor_3[ts] ?? null),
+                    borderWidth: 2,
+                    tension: 0.25,
+                    spanGaps: true,
+                    pointRadius: 2
+                },
+                {
+                    label: "Floor 4 PM2.5",
+                    data: unified.sortedTs.map(ts => unified.valueMaps.floor_4[ts] ?? null),
+                    borderWidth: 2,
+                    tension: 0.25,
+                    spanGaps: true,
+                    pointRadius: 2
+                }
+            ];
+
+            if (pm25TrendChart) {
+                pm25TrendChart.destroy();
+            }
+
+            const ctx = document.getElementById("pm25TrendChart").getContext("2d");
+            pm25TrendChart = new Chart(ctx, {
+                type: "line",
+                data: {
+                    labels: unified.labels,
+                    datasets
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    interaction: {
+                        mode: "index",
+                        intersect: false
+                    },
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                title(items) {
+                                    if (!items.length) return "";
+                                    const idx = items[0].dataIndex;
+                                    return formatDateTimeTH(unified.sortedTs[idx]);
+                                }
+                            }
+                        }
+                    },
+                    elements: {
+                        line: {
+                            spanGaps: true
+                        }
+                    },
+                    scales: {
+                        y: {
+                            title: {
+                                display: true,
+                                text: "PM2.5 (µg/m³)"
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        async function loadDashboard() {
+            try {
+                const range = document.getElementById("timeRangeSelect").value;
+
+                const [summary, floorIAQ, powerTrend, co2Trend, pm25Trend] = await Promise.all([
+                    fetchSummary(range),
+                    fetchFloorIAQ(range),
+                    fetchPowerTrend(range),
+                    fetchCo2Trend(range),
+                    fetchPm25Trend(range)
+                ]);
+
+                renderKPIs(summary);
+                renderFloorCards(floorIAQ);
+                renderPowerChart(powerTrend);
+                renderCo2Chart(co2Trend);
+                renderPm25Chart(pm25Trend);
+
+            } catch (error) {
+                console.error("Dashboard load error:", error);
+            }
+        }
+
+        setActiveNav();
+        document.getElementById("timeRangeSelect").addEventListener("change", loadDashboard);
+
+        loadDashboard();
+        setInterval(loadDashboard, 10000);
+    </script>
+</body>
+</html>

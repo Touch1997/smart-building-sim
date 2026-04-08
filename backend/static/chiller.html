@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chiller Plant Management</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f4f6f8;
+            color: #1f2937;
+        }
+
+        header {
+            background: #0f172a;
+            color: white;
+            padding: 20px 24px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        .navbar {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #0f172a;
+            background: white;
+            border: 1px solid #cbd5e1;
+            border-radius: 10px;
+            padding: 10px 16px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .navbar a:hover {
+            background: #e2e8f0;
+            border-color: #94a3b8;
+        }
+
+        .navbar a.active {
+            background: #0f172a;
+            color: white;
+            border-color: #0f172a;
+        }
+
+        .toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .muted {
+            color: #94a3b8;
+            font-size: 13px;
+        }
+
+        .selector {
+            padding: 10px 14px;
+            border-radius: 10px;
+            border: 1px solid #cbd5e1;
+            background: white;
+            min-width: 160px;
+        }
+
+        .selector-group {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .grid {
+            display: grid;
+            gap: 16px;
+        }
+
+        .kpi-grid {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            margin-bottom: 20px;
+        }
+
+        .chiller-grid {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            margin-bottom: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 18px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .card h3 {
+            margin: 0 0 10px 0;
+            font-size: 16px;
+            color: #334155;
+        }
+
+        .value {
+            font-size: 28px;
+            font-weight: bold;
+            line-height: 1.2;
+        }
+
+        .subline {
+            font-size: 12px;
+            color: #64748b;
+            margin-top: 6px;
+        }
+
+        .section-title {
+            font-size: 22px;
+            margin: 24px 0 12px 0;
+            color: #0f172a;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        td {
+            padding: 8px 0;
+            border-bottom: 1px solid #e5e7eb;
+            vertical-align: top;
+        }
+
+        td:last-child {
+            text-align: right;
+            font-weight: bold;
+        }
+
+        .status-on {
+            color: #15803d;
+            font-weight: bold;
+        }
+
+        .status-off {
+            color: #64748b;
+            font-weight: bold;
+        }
+
+        .status-alarm {
+            color: #dc2626;
+            font-weight: bold;
+        }
+
+        .chart-card {
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 1100px) {
+            .kpi-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .chiller-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .kpi-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .selector {
+                width: 100%;
+            }
+
+            .selector-group {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Chiller Plant Management</h1>
+    </header>
+
+    <div class="container">
+        <div class="navbar" id="topNav">
+            <a href="/dashboard" data-path="/dashboard">Main</a>
+            <a href="/dashboard/chiller" data-path="/dashboard/chiller">Chiller</a>
+            <a href="/dashboard/air" data-path="/dashboard/air">Air</a>
+            <a href="/dashboard/electrical" data-path="/dashboard/electrical">Electrical</a>
+        </div>
+
+        <div class="toolbar">
+            <div class="muted">Time selector for plant analytics and trend</div>
+
+            <div class="selector-group">
+                <select id="timeRangeSelect" class="selector">
+                    <option value="1h">Last Hour</option>
+                    <option value="24h" selected>Last Day</option>
+                    <option value="7d">Last Week</option>
+                    <option value="30d">Last Month</option>
+                    <option value="365d">Last Year</option>
+                </select>
+
+                <select id="metricSelect" class="selector">
+                    <option value="power" selected>Trend: Power (kW)</option>
+                    <option value="cooling_rate">Trend: Cooling Load (RT)</option>
+                    <option value="efficiency">Trend: Efficiency (kW/RT)</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="section-title">Plant Overview</div>
+        <div class="grid kpi-grid">
+            <div class="card">
+                <h3>Total Chiller Power</h3>
+                <div class="value" id="totalPower">-</div>
+                <div class="subline" id="latestUpdate">-</div>
+            </div>
+
+            <div class="card">
+                <h3>Total Cooling Load</h3>
+                <div class="value" id="totalRT">-</div>
+                <div class="subline">Sum of current cooling output from CH-1 to CH-3</div>
+            </div>
+
+            <div class="card">
+                <h3>Plant Efficiency</h3>
+                <div class="value" id="plantEff">-</div>
+                <div class="subline">Total power divided by total cooling load</div>
+            </div>
+
+            <div class="card">
+                <h3>Chiller Energy Consumption</h3>
+                <div class="value" id="totalEnergy">-</div>
+                <div class="subline">Delta from chiller sub-meters over selected range</div>
+            </div>
+        </div>
+
+        <div class="section-title">Chiller Status and Performance</div>
+        <div class="grid chiller-grid" id="chillerCards"></div>
+
+        <div class="section-title">Chiller Trend</div>
+        <div class="card chart-card">
+            <canvas id="chillerTrendChart" height="100"></canvas>
+        </div>
+    </div>
+
+    <script>
+        let chillerTrendChart = null;
+
+        function setActiveNav() {
+            const currentPath = window.location.pathname;
+            document.querySelectorAll("#topNav a").forEach(link => {
+                if (link.dataset.path === currentPath) {
+                    link.classList.add("active");
+                } else {
+                    link.classList.remove("active");
+                }
+            });
+        }
+
+        function toDateSafe(ts) {
+            if (!ts) return null;
+            const d = new Date(ts);
+            if (!Number.isNaN(d.getTime())) return d;
+            return null;
+        }
+
+        function formatDateTimeTH(ts) {
+            const d = toDateSafe(ts);
+            if (!d) return "-";
+            return d.toLocaleString("th-TH", {
+                year: "numeric",
+                month: "2-digit",
+                day: "2-digit",
+                hour: "2-digit",
+                minute: "2-digit",
+                second: "2-digit"
+            });
+        }
+
+        function toChartLabelTH(ts) {
+            const d = toDateSafe(ts);
+            if (!d) return "-";
+            return d.toLocaleString("th-TH", {
+                month: "2-digit",
+                day: "2-digit",
+                hour: "2-digit",
+                minute: "2-digit"
+            });
+        }
+
+        async function fetchChillerSummary(range) {
+            const res = await fetch(`/api/chiller/summary?range=${encodeURIComponent(range)}`);
+            if (!res.ok) throw new Error("Failed to fetch chiller summary");
+            return await res.json();
+        }
+
+        async function fetchChillerTrend(range, metric) {
+            const res = await fetch(`/api/chiller/trend?range=${encodeURIComponent(range)}&metric=${encodeURIComponent(metric)}`);
+            if (!res.ok) throw new Error("Failed to fetch chiller trend");
+            return await res.json();
+        }
+
+        function formatNumber(val, digits = 2) {
+            if (val === null || val === undefined || Number.isNaN(Number(val))) return "-";
+            return Number(val).toFixed(digits);
+        }
+
+        function statusText(val) {
+            return Number(val) === 1 ? "ON" : "OFF";
+        }
+
+        function alarmText(val) {
+            return Number(val) === 1 ? "ALARM" : "OK";
+        }
+
+        function statusClass(val) {
+            return Number(val) === 1 ? "status-on" : "status-off";
+        }
+
+        function alarmClass(val) {
+            return Number(val) === 1 ? "status-alarm" : "status-on";
+        }
+
+        function renderSummary(data) {
+            document.getElementById("totalPower").textContent =
+                `${formatNumber(data.total_power)} kW`;
+
+            document.getElementById("totalRT").textContent =
+                `${formatNumber(data.total_rt)} RT`;
+
+            document.getElementById("plantEff").textContent =
+                data.plant_efficiency !== null && data.plant_efficiency !== undefined
+                    ? `${formatNumber(data.plant_efficiency)} kW/RT`
+                    : "-";
+
+            document.getElementById("totalEnergy").textContent =
+                `${formatNumber(data.total_chiller_energy)} kWh`;
+
+            document.getElementById("latestUpdate").textContent =
+                data.latest_ts
+                    ? `Last update: ${formatDateTimeTH(data.latest_ts)}`
+                    : "-";
+        }
+
+        function renderChillers(chillers, energyByMeter) {
+            const container = document.getElementById("chillerCards");
+            container.innerHTML = "";
+
+            const orderedDevices = ["chiller_1", "chiller_2", "chiller_3"];
+
+            orderedDevices.forEach((device, index) => {
+                const ch = chillers[device] || {};
+                const meterName = `chiller_meter_${index + 1}`;
+                const meter = energyByMeter[meterName] || {};
+
+                const card = document.createElement("div");
+                card.className = "card";
+
+                card.innerHTML = `
+                    <h3>CH-${index + 1}</h3>
+                    <table>
+                        <tr>
+                            <td>Running Status</td>
+                            <td class="${statusClass(ch.status_read)}">${statusText(ch.status_read)}</td>
+                        </tr>
+                        <tr>
+                            <td>Command</td>
+                            <td>${Number(ch.status_write) === 1 ? "START" : "STOP"}</td>
+                        </tr>
+                        <tr>
+                            <td>Alarm</td>
+                            <td class="${alarmClass(ch.alarm)}">${alarmText(ch.alarm)}</td>
+                        </tr>
+                        <tr>
+                            <td>Power</td>
+                            <td>${formatNumber(ch.power)} kW</td>
+                        </tr>
+                        <tr>
+                            <td>Cooling Rate</td>
+                            <td>${formatNumber(ch.cooling_rate)} RT</td>
+                        </tr>
+                        <tr>
+                            <td>Efficiency</td>
+                            <td>${formatNumber(ch.efficiency)} kW/RT</td>
+                        </tr>
+                        <tr>
+                            <td>% RLA</td>
+                            <td>${formatNumber(ch.percentage_rla)} %</td>
+                        </tr>
+                        <tr>
+                            <td>CHW Supply Temp</td>
+                            <td>${formatNumber(ch.evap_leaving_water_temperature)} °F</td>
+                        </tr>
+                        <tr>
+                            <td>CHW Return Temp</td>
+                            <td>${formatNumber(ch.evap_entering_water_temperature)} °F</td>
+                        </tr>
+                        <tr>
+                            <td>Delta T</td>
+                            <td>${formatNumber(ch.evap_water_delta_temperature)} °F</td>
+                        </tr>
+                        <tr>
+                            <td>Flow Rate</td>
+                            <td>${formatNumber(ch.evap_water_flow_rate)} GPM</td>
+                        </tr>
+                        <tr>
+                            <td>Sat. Refrig Temp</td>
+                            <td>${formatNumber(ch.evap_sat_refrig_temperature)} °F</td>
+                        </tr>
+                        <tr>
+                            <td>Approach Temp</td>
+                            <td>${formatNumber(ch.evap_approach_temperature)} °F</td>
+                        </tr>
+                        <tr>
+                            <td>Sub-Meter Energy</td>
+                            <td>${formatNumber(meter.energy_delta)} kWh</td>
+                        </tr>
+                    </table>
+                `;
+
+                container.appendChild(card);
+            });
+        }
+
+        function metricLabel(metric) {
+            if (metric === "power") return "Power (kW)";
+            if (metric === "cooling_rate") return "Cooling Load (RT)";
+            if (metric === "efficiency") return "Efficiency (kW/RT)";
+            return metric;
+        }
+
+        function buildUnifiedTrendData(trendData) {
+            const datasetsFromApi = trendData.datasets || {};
+            const orderedDevices = ["chiller_1", "chiller_2", "chiller_3"];
+
+            const allTs = new Set();
+            const valueMaps = {
+                chiller_1: {},
+                chiller_2: {},
+                chiller_3: {}
+            };
+
+            orderedDevices.forEach(device => {
+                const points = datasetsFromApi[device] || [];
+                points.forEach(p => {
+                    const key = p.ts;
+                    allTs.add(key);
+                    valueMaps[device][key] = Number(p.value);
+                });
+            });
+
+            const sortedTs = Array.from(allTs).sort((a, b) => new Date(a) - new Date(b));
+            const labels = sortedTs.map(ts => toChartLabelTH(ts));
+
+            return {
+                sortedTs,
+                labels,
+                valueMaps
+            };
+        }
+
+        function renderTrend(trendData) {
+            const metric = trendData.metric;
+            const unified = buildUnifiedTrendData(trendData);
+
+            const datasetConfig = [
+                { key: "chiller_1", label: "CH-1" },
+                { key: "chiller_2", label: "CH-2" },
+                { key: "chiller_3", label: "CH-3" }
+            ];
+
+            const datasets = datasetConfig.map(cfg => {
+                return {
+                    label: `${cfg.label} ${metricLabel(metric)}`,
+                    data: unified.sortedTs.map(ts => {
+                        const v = unified.valueMaps[cfg.key][ts];
+                        return v !== undefined ? v : null;
+                    }),
+                    borderWidth: 2,
+                    tension: 0.25,
+                    spanGaps: true,
+                    pointRadius: 2,
+                    pointHoverRadius: 4
+                };
+            });
+
+            if (chillerTrendChart) {
+                chillerTrendChart.destroy();
+            }
+
+            const ctx = document.getElementById("chillerTrendChart").getContext("2d");
+            chillerTrendChart = new Chart(ctx, {
+                type: "line",
+                data: {
+                    labels: unified.labels,
+                    datasets
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    interaction: {
+                        mode: "index",
+                        intersect: false
+                    },
+                    elements: {
+                        line: {
+                            spanGaps: true
+                        }
+                    },
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                title(items) {
+                                    if (!items.length) return "";
+                                    const idx = items[0].dataIndex;
+                                    const ts = unified.sortedTs[idx];
+                                    return formatDateTimeTH(ts);
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        async function loadChillerDashboard() {
+            try {
+                const range = document.getElementById("timeRangeSelect").value;
+                const metric = document.getElementById("metricSelect").value;
+
+                const [summary, trend] = await Promise.all([
+                    fetchChillerSummary(range),
+                    fetchChillerTrend(range, metric)
+                ]);
+
+                renderSummary(summary);
+                renderChillers(summary.chillers || {}, summary.chiller_energy_by_meter || {});
+                renderTrend(trend);
+
+            } catch (error) {
+                console.error("Chiller dashboard load error:", error);
+            }
+        }
+
+        setActiveNav();
+        document.getElementById("timeRangeSelect").addEventListener("change", loadChillerDashboard);
+        document.getElementById("metricSelect").addEventListener("change", loadChillerDashboard);
+
+        loadChillerDashboard();
+        setInterval(loadChillerDashboard, 10000);
+    </script>
+</body>
+</html>

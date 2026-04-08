@@ -1,0 +1,513 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="iIYVpf9G7N3YkVqPr6ra">
+    <mxGraphModel dx="3535" dy="1943" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-65" edge="1" parent="1" style="endArrow=none;html=1;rounded=0;strokeWidth=5;fontSize=13;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="350" y="1310" as="sourcePoint" />
+            <mxPoint x="350" y="480" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-67" edge="1" parent="1" style="endArrow=none;html=1;rounded=0;strokeWidth=5;exitX=0.986;exitY=0.438;exitDx=0;exitDy=0;exitPerimeter=0;fontSize=13;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="309.9960000000002" y="479.2880000000002" as="sourcePoint" />
+            <mxPoint x="350" y="480" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-71" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontStyle=1;fontSize=20;container=0;" value="Modbus TCP (Port 502)" vertex="1">
+          <mxGeometry height="30" width="284" x="1750" y="850" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-74" parent="1" style="image;html=1;image=img/lib/clip_art/networking/Switch_128x128.png;fontSize=13;container=0;" value="" vertex="1">
+          <mxGeometry height="84" width="144" x="742" y="841" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-75" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontStyle=1;fontSize=13;container=0;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Floor 4 Switch Hub&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;IP:&amp;nbsp;192.168.10.80&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="30" width="236" x="1600" y="910" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-86" parent="1" style="text;whiteSpace=wrap;html=1;fontSize=24;fontStyle=1;container=0;" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Helvetica; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(236, 236, 236); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline !important;&quot;&gt;Edge Computing Gateway&lt;/span&gt;" vertex="1">
+          <mxGeometry height="64" width="320" x="2014" y="542" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-16" edge="1" parent="1" style="endArrow=none;html=1;rounded=0;strokeWidth=5;fontSize=13;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="1169.66" y="842" as="sourcePoint" />
+            <mxPoint x="1169.66" y="896" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-17" parent="1" style="image;html=1;image=img/lib/clip_art/networking/Switch_128x128.png;fontSize=13;container=0;" value="" vertex="1">
+          <mxGeometry height="84" width="144" x="1098" y="757" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-18" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontStyle=1;fontSize=13;container=0;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Floor 3 Switch Hub&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;IP:&amp;nbsp;192.168.10.70&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="30" width="236" x="1209" y="911" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-19" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontStyle=1;fontSize=13;container=0;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Floor 1 Switch Hub&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;IP:&amp;nbsp;192.168.10.50&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="30" width="236" x="1170" y="848" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-20" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontStyle=1;fontSize=13;container=0;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Plant Switch Hub&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;IP:&amp;nbsp;192.168.10.20&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="30" width="236" x="680" y="950" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-45" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;curved=0;strokeWidth=7;fontSize=13;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="900" y="896" as="sourcePoint" />
+            <mxPoint x="1996" y="896" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-64" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontStyle=1;fontSize=13;container=0;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Floor 2 Switch Hub&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;IP:&amp;nbsp;192.168.10.60&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="30" width="236" x="1544" y="848" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-78" connectable="0" parent="1" style="group;strokeWidth=3;strokeColor=default;fontSize=13;container=0;" value="" vertex="1">
+          <mxGeometry height="672" width="800" x="2010" y="590" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-79" parent="1" style="text;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=13;fontStyle=1;align=center;container=0;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Node-RED&amp;nbsp;&lt;br&gt;&lt;font&gt;IP:192.168.10.11&amp;nbsp;&lt;/font&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="77.53846153846155" width="336" x="2227" y="1134" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-80" parent="1" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#7AA116;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=13;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.iot_device_gateway;container=0;" value="" vertex="1">
+          <mxGeometry height="253" width="270.33" x="2267.669117121483" y="877.9976923076923" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-81" parent="1" style="text;whiteSpace=wrap;html=1;fontSize=13;container=0;" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;- Modbus Client&lt;br&gt;- Protocol Conversion&lt;br&gt;- Data Processing&lt;br&gt;- MQTT Publisher&lt;/font&gt;" vertex="1">
+          <mxGeometry height="204.75" width="240" x="2563" y="957.9992307692307" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-82" parent="1" style="image;html=1;image=img/lib/clip_art/networking/Switch_128x128.png;fontSize=13;container=0;" value="" vertex="1">
+          <mxGeometry height="160" width="240" x="2290" y="622" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-83" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontStyle=1;fontSize=16;container=0;" value="&lt;font&gt;Core Switch Hub&lt;/font&gt;&lt;div&gt;&lt;font&gt;IP:&amp;nbsp;192.168.10.10&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="48.46153846153846" width="236" x="2506" y="725.7723076923077" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-84" edge="1" parent="1" source="xGBKgyB9riMk9t0wYe-T-82" style="endArrow=classic;html=1;rounded=0;strokeWidth=7;exitX=0.464;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;fontSize=13;" target="xGBKgyB9riMk9t0wYe-T-80" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="2363" y="830" as="sourcePoint" />
+            <mxPoint x="2410" y="862" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-85" parent="1" style="text;whiteSpace=wrap;html=1;fontSize=13;fontStyle=1;container=0;" value="Ethernet (LAN)" vertex="1">
+          <mxGeometry height="48" width="128" x="2410" y="812" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-89" connectable="0" parent="1" style="group" value="" vertex="1">
+          <mxGeometry height="130" width="192" x="510" y="1070" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-87" parent="xGBKgyB9riMk9t0wYe-T-89" style="text;whiteSpace=wrap;strokeColor=default;strokeWidth=3;fontSize=16;" value="Main Building Meter (PQ Meter)&#xa;Protocol: Modbus TCP&#xa;IP: 192.168.10.33&#xa;Port: 502" vertex="1">
+          <mxGeometry height="100" width="252" x="-60" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-88" parent="xGBKgyB9riMk9t0wYe-T-89" style="text;whiteSpace=wrap;html=1;fontStyle=5" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Helvetica; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(236, 236, 236); float: none; display: inline !important;&quot;&gt;&lt;span&gt;Main Building Meter&lt;/span&gt;&lt;/span&gt;" vertex="1">
+          <mxGeometry height="40" width="170" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-90" connectable="0" parent="1" style="group" value="" vertex="1">
+          <mxGeometry height="260" width="202" x="110" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-91" parent="xGBKgyB9riMk9t0wYe-T-90" style="text;whiteSpace=wrap;strokeColor=default;strokeWidth=3;fontSize=16;" value="CH-1 Meter&#xa;Protocol: Modbus RTU&#xa;Slave ID: 21&#xa;---------------------------------CH-2 Meter&#xa;Protocol: Modbus RTU&#xa;Slave ID: 22&#xa;----------------------------&#xa;CH-3 Meter&#xa;Protocol: Modbus RTU&#xa;Slave ID: 23" vertex="1">
+          <mxGeometry height="230" width="199.89583333333331" x="2.1041666666666665" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-92" parent="xGBKgyB9riMk9t0wYe-T-90" style="text;whiteSpace=wrap;html=1;fontStyle=5" value="&lt;span style=&quot;font-size: 16px;&quot;&gt;Chiller Sub-Meters&lt;/span&gt;" vertex="1">
+          <mxGeometry height="40" width="178.85416666666666" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-93" connectable="0" parent="1" style="group" value="" vertex="1">
+          <mxGeometry height="260" width="202" x="110" y="620" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-94" parent="xGBKgyB9riMk9t0wYe-T-93" style="text;whiteSpace=wrap;strokeColor=default;strokeWidth=3;fontSize=16;" value="CHP-1 Meter&#xa;Protocol: Modbus RTU&#xa;Slave ID: 31&#xa;---------------------------------&#xa;CHP-2 Meter&#xa;Protocol: Modbus RTU&#xa;Slave ID: 32&#xa;---------------------------------&#xa;CHP-3 Meter&#xa;Protocol: Modbus RTU&#xa;Slave ID: 33" vertex="1">
+          <mxGeometry height="230" width="199.89583333333331" x="2.1041666666666665" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-95" parent="xGBKgyB9riMk9t0wYe-T-93" style="text;whiteSpace=wrap;html=1;fontStyle=5" value="&lt;span style=&quot;font-size: 16px;&quot;&gt;CHP Sub-Meters&lt;/span&gt;" vertex="1">
+          <mxGeometry height="40" width="178.85416666666666" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-96" connectable="0" parent="1" style="group" value="" vertex="1">
+          <mxGeometry height="260" width="202" x="110" y="890" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-97" parent="xGBKgyB9riMk9t0wYe-T-96" style="text;whiteSpace=wrap;strokeColor=default;strokeWidth=3;fontSize=16;" value="CDP-1 Meter&#xa;Protocol: Modbus RTU&#xa;Slave ID: 41&#xa;---------------------------------&#xa;CDP-2 Meter&#xa;Protocol: Modbus RTU&#xa;Slave ID: 42&#xa;---------------------------------&#xa;CDP-3 Meter&#xa;Protocol: Modbus RTU&#xa;Slave ID: 43" vertex="1">
+          <mxGeometry height="230" width="199.89583333333331" x="2.1041666666666665" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-98" parent="xGBKgyB9riMk9t0wYe-T-96" style="text;whiteSpace=wrap;html=1;fontStyle=5" value="&lt;span style=&quot;font-size: 16px;&quot;&gt;CDP Sub-Meters&lt;/span&gt;" vertex="1">
+          <mxGeometry height="40" width="178.85416666666666" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-100" connectable="0" parent="1" style="group" value="" vertex="1">
+          <mxGeometry height="260" width="202" x="110" y="1150" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-101" parent="xGBKgyB9riMk9t0wYe-T-100" style="text;whiteSpace=wrap;strokeColor=default;strokeWidth=3;fontSize=16;" value="CT-1 Meter&#xa;Protocol: Modbus RTU&#xa;Slave ID: 51&#xa;---------------------------------&#xa;CT-2 Meter&#xa;Protocol: Modbus RTU&#xa;Slave ID: 52&#xa;---------------------------------&#xa;CT-3 Meter&#xa;Protocol: Modbus RTU&#xa;Slave ID: 53" vertex="1">
+          <mxGeometry height="230" width="199.89583333333331" x="2.1041666666666665" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-102" parent="xGBKgyB9riMk9t0wYe-T-100" style="text;whiteSpace=wrap;html=1;fontStyle=5" value="&lt;span style=&quot;font-size: 16px;&quot;&gt;CT Sub-Meters&lt;/span&gt;" vertex="1">
+          <mxGeometry height="40" width="178.85416666666666" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-109" edge="1" parent="1" style="endArrow=none;html=1;rounded=0;strokeWidth=5;exitX=0.986;exitY=0.438;exitDx=0;exitDy=0;exitPerimeter=0;fontSize=13;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="310" y="749.29" as="sourcePoint" />
+            <mxPoint x="350.0039999999998" y="750.0019999999997" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-110" edge="1" parent="1" style="endArrow=none;html=1;rounded=0;strokeWidth=5;exitX=0.986;exitY=0.438;exitDx=0;exitDy=0;exitPerimeter=0;fontSize=13;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="312" y="1040" as="sourcePoint" />
+            <mxPoint x="352.0039999999998" y="1040.7119999999998" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-111" edge="1" parent="1" style="endArrow=none;html=1;rounded=0;strokeWidth=5;exitX=0.986;exitY=0.438;exitDx=0;exitDy=0;exitPerimeter=0;fontSize=13;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="310" y="1308.57" as="sourcePoint" />
+            <mxPoint x="350.0039999999998" y="1309.2819999999997" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-113" connectable="0" parent="1" style="group" value="" vertex="1">
+          <mxGeometry height="199.20000000000005" width="210" x="490" y="810" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-103" connectable="0" parent="xGBKgyB9riMk9t0wYe-T-113" style="group" value="" vertex="1">
+          <mxGeometry height="50" width="143.17" x="20.49000000000001" y="149.20000000000005" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-104" parent="xGBKgyB9riMk9t0wYe-T-103" style="text;whiteSpace=wrap;strokeColor=none;strokeWidth=3;fontSize=16;" value="IP: 192.168.10.34" vertex="1">
+          <mxGeometry height="15.38" width="138.64" x="1.36" y="11.54" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-112" connectable="0" parent="xGBKgyB9riMk9t0wYe-T-113" style="group" value="" vertex="1">
+          <mxGeometry height="169.20000000000005" width="210" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-106" parent="xGBKgyB9riMk9t0wYe-T-112" style="image;points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;image=img/lib/allied_telesis/media_converters/Media_Converter_Standalone.svg;" value="" vertex="1">
+          <mxGeometry height="117.2" width="143.66" x="20" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-105" parent="xGBKgyB9riMk9t0wYe-T-112" style="text;whiteSpace=wrap;html=1;fontStyle=5" value="&lt;span style=&quot;font-size: 16px;&quot;&gt;Plant RTU-TCP Gateway&lt;/span&gt;" vertex="1">
+          <mxGeometry height="40" width="210" y="129.20000000000005" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-122" edge="1" parent="xGBKgyB9riMk9t0wYe-T-112" style="endArrow=classic;html=1;rounded=0;strokeWidth=5;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="180" y="90" as="sourcePoint" />
+            <mxPoint x="250" y="90" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-120" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;strokeWidth=5;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="350" y="899.1800000000001" as="sourcePoint" />
+            <mxPoint x="480" y="899" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-121" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontStyle=1;fontSize=20;container=0;" value="Modbus RTU" vertex="1">
+          <mxGeometry height="30" width="140" x="350" y="860" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-125" edge="1" parent="1" source="xGBKgyB9riMk9t0wYe-T-87" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;strokeWidth=5;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="810" y="1010" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-126" parent="1" style="text;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;&lt;b&gt;Modbus TCP (Port 502)&lt;/b&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="40" width="94" x="710" y="1100" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-134" connectable="0" parent="1" style="group" value="" vertex="1">
+          <mxGeometry height="268" width="250" x="1045" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-47" parent="xGBKgyB9riMk9t0wYe-T-134" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=none;strokeWidth=3;fontSize=13;container=0;" value="" vertex="1">
+          <mxGeometry height="250" width="250" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-127" connectable="0" parent="xGBKgyB9riMk9t0wYe-T-134" style="group" value="" vertex="1">
+          <mxGeometry height="260" width="202" x="24" y="8" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-128" parent="xGBKgyB9riMk9t0wYe-T-127" style="text;whiteSpace=wrap;strokeColor=default;strokeWidth=3;fontSize=16;" value="Floor 1 Sub-Meter&#xa;Protocol: Modbus RTU&#xa;Slave ID: 1&#xa;" vertex="1">
+          <mxGeometry height="70" width="199.9" x="2.1" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-129" parent="xGBKgyB9riMk9t0wYe-T-127" style="text;whiteSpace=wrap;html=1;fontStyle=5" value="&lt;span style=&quot;font-size: 16px;&quot;&gt;Floor 1&lt;/span&gt;" vertex="1">
+          <mxGeometry height="40" width="178.85416666666666" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-133" connectable="0" parent="xGBKgyB9riMk9t0wYe-T-134" style="group" value="" vertex="1">
+          <mxGeometry height="120" width="202" x="24" y="108" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-130" connectable="0" parent="xGBKgyB9riMk9t0wYe-T-133" style="group" value="" vertex="1">
+          <mxGeometry height="100" width="202" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-132" parent="xGBKgyB9riMk9t0wYe-T-130" style="text;whiteSpace=wrap;html=1;fontStyle=5" value="&lt;span style=&quot;font-size: 16px;&quot;&gt;AHU-1&lt;/span&gt;" vertex="1">
+          <mxGeometry height="40" width="167.9" x="2.1" y="16" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-131" parent="xGBKgyB9riMk9t0wYe-T-133" style="text;whiteSpace=wrap;strokeColor=default;strokeWidth=3;fontSize=16;" value="AHU-1 Sub-Meter&#xa;Protocol: Modbus RTU&#xa;Slave ID: 2" vertex="1">
+          <mxGeometry height="70" width="199.9" x="2.1000000000000227" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-146" connectable="0" parent="1" style="group" value="" vertex="1">
+          <mxGeometry height="199.20000000000005" width="210" x="1080" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-149" connectable="0" parent="xGBKgyB9riMk9t0wYe-T-146" style="group" value="" vertex="1">
+          <mxGeometry height="169.20000000000005" width="210" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-150" parent="xGBKgyB9riMk9t0wYe-T-149" style="image;points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;image=img/lib/allied_telesis/media_converters/Media_Converter_Standalone.svg;" value="" vertex="1">
+          <mxGeometry height="117.2" width="143.66" x="20" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-152" edge="1" parent="xGBKgyB9riMk9t0wYe-T-146" style="endArrow=classic;html=1;rounded=0;strokeWidth=5;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="91.47" y="139.2" as="sourcePoint" />
+            <mxPoint x="91.47" y="199.2" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-147" connectable="0" parent="1" style="group" value="" vertex="1">
+          <mxGeometry height="50" width="143.17" x="921.83" y="607.2" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-148" parent="xGBKgyB9riMk9t0wYe-T-147" style="text;whiteSpace=wrap;strokeColor=none;strokeWidth=3;fontSize=16;" value="IP: 192.168.10.51" vertex="1">
+          <mxGeometry height="15.38" width="138.64" x="1.36" y="11.54" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-151" parent="1" style="text;whiteSpace=wrap;html=1;fontStyle=5" value="&lt;span style=&quot;font-size: 16px;&quot;&gt;Floor 1 RTU-TCP Gateway&lt;/span&gt;" vertex="1">
+          <mxGeometry height="40" width="210" x="886" y="590" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-158" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;strokeWidth=5;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="1169.41" y="480" as="sourcePoint" />
+            <mxPoint x="1169.41" y="540" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-159" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontStyle=1;fontSize=20;container=0;" value="Modbus RTU" vertex="1">
+          <mxGeometry height="30" width="140" x="1176" y="488" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-160" parent="1" style="image;html=1;image=img/lib/clip_art/networking/Switch_128x128.png;fontSize=13;container=0;" value="" vertex="1">
+          <mxGeometry height="84" width="144" x="1498" y="758" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-162" connectable="0" parent="1" style="group" value="" vertex="1">
+          <mxGeometry height="268" width="250" x="1445" y="221" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-163" parent="xGBKgyB9riMk9t0wYe-T-162" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=none;strokeWidth=3;fontSize=13;container=0;" value="" vertex="1">
+          <mxGeometry height="250" width="250" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-164" connectable="0" parent="xGBKgyB9riMk9t0wYe-T-162" style="group" value="" vertex="1">
+          <mxGeometry height="260" width="202" x="24" y="8" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-165" parent="xGBKgyB9riMk9t0wYe-T-164" style="text;whiteSpace=wrap;strokeColor=default;strokeWidth=3;fontSize=16;" value="Floor 2 Sub-Meter&#xa;Protocol: Modbus RTU&#xa;Slave ID: 1" vertex="1">
+          <mxGeometry height="70" width="199.9" x="2.1" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-166" parent="xGBKgyB9riMk9t0wYe-T-164" style="text;whiteSpace=wrap;html=1;fontStyle=5" value="&lt;span style=&quot;font-size: 16px;&quot;&gt;Floor 2&lt;/span&gt;" vertex="1">
+          <mxGeometry height="40" width="178.85416666666666" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-167" connectable="0" parent="xGBKgyB9riMk9t0wYe-T-162" style="group" value="" vertex="1">
+          <mxGeometry height="120" width="202" x="24" y="108" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-168" connectable="0" parent="xGBKgyB9riMk9t0wYe-T-167" style="group" value="" vertex="1">
+          <mxGeometry height="100" width="202" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-169" parent="xGBKgyB9riMk9t0wYe-T-168" style="text;whiteSpace=wrap;html=1;fontStyle=5" value="&lt;span style=&quot;font-size: 16px;&quot;&gt;AHU-1&lt;/span&gt;" vertex="1">
+          <mxGeometry height="40" width="167.9" x="2.1" y="16" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-170" parent="xGBKgyB9riMk9t0wYe-T-167" style="text;whiteSpace=wrap;strokeColor=default;strokeWidth=3;fontSize=16;" value="AHU-2 Sub-Meter&#xa;Protocol: Modbus RTU&#xa;Slave ID: 1" vertex="1">
+          <mxGeometry height="70" width="199.9" x="2.1000000000000227" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-171" connectable="0" parent="1" style="group" value="" vertex="1">
+          <mxGeometry height="199.20000000000005" width="210" x="1480" y="551" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-172" connectable="0" parent="xGBKgyB9riMk9t0wYe-T-171" style="group" value="" vertex="1">
+          <mxGeometry height="169.20000000000005" width="210" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-173" parent="xGBKgyB9riMk9t0wYe-T-172" style="image;points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;image=img/lib/allied_telesis/media_converters/Media_Converter_Standalone.svg;" value="" vertex="1">
+          <mxGeometry height="117.2" width="143.66" x="20" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-174" edge="1" parent="xGBKgyB9riMk9t0wYe-T-171" style="endArrow=classic;html=1;rounded=0;strokeWidth=5;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="91.47" y="139.2" as="sourcePoint" />
+            <mxPoint x="91.47" y="199.2" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-175" connectable="0" parent="1" style="group" value="" vertex="1">
+          <mxGeometry height="50" width="170.17000000000007" x="1321.83" y="608.2" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-176" parent="xGBKgyB9riMk9t0wYe-T-175" style="text;whiteSpace=wrap;strokeColor=none;strokeWidth=3;fontSize=16;" value="IP: 192.168.10.61" vertex="1">
+          <mxGeometry height="15.38" width="138.64" x="1.36" y="11.54" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-177" parent="xGBKgyB9riMk9t0wYe-T-175" style="text;whiteSpace=wrap;html=1;fontStyle=5" value="&lt;span style=&quot;font-size: 16px;&quot;&gt;Floor 2 RTU-TCP Gateway&lt;/span&gt;" vertex="1">
+          <mxGeometry height="40" width="210" x="-39.82999999999993" y="-18.600000000000023" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-178" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;strokeWidth=5;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="1569.41" y="481" as="sourcePoint" />
+            <mxPoint x="1569.41" y="541" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-179" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontStyle=1;fontSize=20;container=0;" value="Modbus RTU" vertex="1">
+          <mxGeometry height="30" width="140" x="1576" y="489" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-180" edge="1" parent="1" style="endArrow=none;html=1;rounded=0;strokeWidth=5;fontSize=13;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="1569.66" y="841" as="sourcePoint" />
+            <mxPoint x="1569.66" y="895" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-181" parent="1" style="image;html=1;image=img/lib/clip_art/networking/Switch_128x128.png;fontSize=13;container=0;" value="" vertex="1">
+          <mxGeometry height="84" width="144" x="1098" y="910" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-182" connectable="0" parent="1" style="group" value="" vertex="1">
+          <mxGeometry height="268" width="250" x="1040" y="1250" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-183" parent="xGBKgyB9riMk9t0wYe-T-182" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=none;strokeWidth=3;fontSize=13;container=0;" value="" vertex="1">
+          <mxGeometry height="250" width="250" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-184" connectable="0" parent="xGBKgyB9riMk9t0wYe-T-182" style="group" value="" vertex="1">
+          <mxGeometry height="260" width="202" x="24" y="8" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-185" parent="xGBKgyB9riMk9t0wYe-T-184" style="text;whiteSpace=wrap;strokeColor=default;strokeWidth=3;fontSize=16;" value="Floor 3 Sub-Meter&#xa;Protocol: Modbus RTU&#xa;Slave ID: 1&#xa;" vertex="1">
+          <mxGeometry height="70" width="199.9" x="2.1" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-186" parent="xGBKgyB9riMk9t0wYe-T-184" style="text;whiteSpace=wrap;html=1;fontStyle=5" value="&lt;span style=&quot;font-size: 16px;&quot;&gt;Floor 3&lt;/span&gt;" vertex="1">
+          <mxGeometry height="40" width="178.85416666666666" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-187" connectable="0" parent="xGBKgyB9riMk9t0wYe-T-182" style="group" value="" vertex="1">
+          <mxGeometry height="120" width="202" x="24" y="108" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-188" connectable="0" parent="xGBKgyB9riMk9t0wYe-T-187" style="group" value="" vertex="1">
+          <mxGeometry height="100" width="202" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-189" parent="xGBKgyB9riMk9t0wYe-T-188" style="text;whiteSpace=wrap;html=1;fontStyle=5" value="&lt;span style=&quot;font-size: 16px;&quot;&gt;AHU-1&lt;/span&gt;" vertex="1">
+          <mxGeometry height="40" width="167.9" x="2.1" y="16" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-190" parent="xGBKgyB9riMk9t0wYe-T-187" style="text;whiteSpace=wrap;strokeColor=default;strokeWidth=3;fontSize=16;" value="AHU-3 Sub-Meter&#xa;Protocol: Modbus RTU&#xa;Slave ID: 2" vertex="1">
+          <mxGeometry height="70" width="199.9" x="2.1000000000000227" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-191" connectable="0" parent="1" style="group" value="" vertex="1">
+          <mxGeometry height="199.20000000000005" width="240" x="1080" y="1062.8" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-192" connectable="0" parent="xGBKgyB9riMk9t0wYe-T-191" style="group" value="" vertex="1">
+          <mxGeometry height="169.20000000000005" width="240" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-193" parent="xGBKgyB9riMk9t0wYe-T-192" style="image;points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;image=img/lib/allied_telesis/media_converters/Media_Converter_Standalone.svg;" value="" vertex="1">
+          <mxGeometry height="117.2" width="143.66" x="20" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-222" edge="1" parent="xGBKgyB9riMk9t0wYe-T-192" style="endArrow=classic;html=1;rounded=0;strokeWidth=5;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="90.00000000000006" y="177.20000000000005" as="sourcePoint" />
+            <mxPoint x="90.31" y="127.20000000000005" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-199" parent="xGBKgyB9riMk9t0wYe-T-192" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontStyle=1;fontSize=20;container=0;" value="Modbus RTU" vertex="1">
+          <mxGeometry height="30" width="140" x="100" y="139.20000000000005" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-195" connectable="0" parent="1" style="group" value="" vertex="1">
+          <mxGeometry height="50" width="143.17" x="905.8299999999999" y="1117.2" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-196" parent="xGBKgyB9riMk9t0wYe-T-195" style="text;whiteSpace=wrap;strokeColor=none;strokeWidth=3;fontSize=16;" value="IP: 192.168.10.71" vertex="1">
+          <mxGeometry height="15.38" width="138.64" x="1.36" y="11.54" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-197" parent="1" style="text;whiteSpace=wrap;html=1;fontStyle=5" value="&lt;span style=&quot;font-size: 16px;&quot;&gt;Floor 3 RTU-TCP Gateway&lt;/span&gt;" vertex="1">
+          <mxGeometry height="40" width="210" x="870" y="1100" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-200" parent="1" style="image;html=1;image=img/lib/clip_art/networking/Switch_128x128.png;fontSize=13;container=0;" value="" vertex="1">
+          <mxGeometry height="84" width="144" x="1492" y="910" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-201" connectable="0" parent="1" style="group" value="" vertex="1">
+          <mxGeometry height="268" width="250" x="1450" y="1250" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-202" parent="xGBKgyB9riMk9t0wYe-T-201" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=none;strokeWidth=3;fontSize=13;container=0;" value="" vertex="1">
+          <mxGeometry height="250" width="250" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-203" connectable="0" parent="xGBKgyB9riMk9t0wYe-T-201" style="group" value="" vertex="1">
+          <mxGeometry height="260" width="202" x="24" y="8" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-204" parent="xGBKgyB9riMk9t0wYe-T-203" style="text;whiteSpace=wrap;strokeColor=default;strokeWidth=3;fontSize=16;" value="Floor 4 Sub-Meter&#xa;Protocol: Modbus RTU&#xa;Slave ID: 1" vertex="1">
+          <mxGeometry height="70" width="199.9" x="2.1" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-205" parent="xGBKgyB9riMk9t0wYe-T-203" style="text;whiteSpace=wrap;html=1;fontStyle=5" value="&lt;span style=&quot;font-size: 16px;&quot;&gt;Floor 4&lt;/span&gt;" vertex="1">
+          <mxGeometry height="40" width="178.85416666666666" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-206" connectable="0" parent="xGBKgyB9riMk9t0wYe-T-201" style="group" value="" vertex="1">
+          <mxGeometry height="120" width="202" x="24" y="108" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-207" connectable="0" parent="xGBKgyB9riMk9t0wYe-T-206" style="group" value="" vertex="1">
+          <mxGeometry height="100" width="202" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-208" parent="xGBKgyB9riMk9t0wYe-T-207" style="text;whiteSpace=wrap;html=1;fontStyle=5" value="&lt;span style=&quot;font-size: 16px;&quot;&gt;AHU-1&lt;/span&gt;" vertex="1">
+          <mxGeometry height="40" width="167.9" x="2.1" y="16" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-209" parent="xGBKgyB9riMk9t0wYe-T-206" style="text;whiteSpace=wrap;strokeColor=default;strokeWidth=3;fontSize=16;" value="AHU-4 Sub-Meter&#xa;Protocol: Modbus RTU&#xa;Slave ID: 2" vertex="1">
+          <mxGeometry height="70" width="199.9" x="2.1000000000000227" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-214" connectable="0" parent="1" style="group" value="" vertex="1">
+          <mxGeometry height="50" width="170.17000000000007" x="1327.83" y="1110" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-215" parent="xGBKgyB9riMk9t0wYe-T-214" style="text;whiteSpace=wrap;strokeColor=none;strokeWidth=3;fontSize=16;" value="IP: 192.168.10.81" vertex="1">
+          <mxGeometry height="15.38" width="138.64" x="1.36" y="11.54" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-216" parent="xGBKgyB9riMk9t0wYe-T-214" style="text;whiteSpace=wrap;html=1;fontStyle=5" value="&lt;span style=&quot;font-size: 16px;&quot;&gt;Floor 4 RTU-TCP Gateway&lt;/span&gt;" vertex="1">
+          <mxGeometry height="40" width="210" x="-39.82999999999993" y="-18.600000000000023" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-194" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;strokeWidth=5;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="1169" y="1050" as="sourcePoint" />
+            <mxPoint x="1169.31" y="1000" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-211" connectable="0" parent="1" style="group" value="" vertex="1">
+          <mxGeometry height="169.20000000000005" width="250" x="1480" y="1060.8000000000002" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-212" parent="xGBKgyB9riMk9t0wYe-T-211" style="image;points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;image=img/lib/allied_telesis/media_converters/Media_Converter_Standalone.svg;" value="" vertex="1">
+          <mxGeometry height="117.2" width="143.66" x="20" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-223" edge="1" parent="xGBKgyB9riMk9t0wYe-T-211" style="endArrow=classic;html=1;rounded=0;strokeWidth=5;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="89.57999999999993" y="178.19999999999982" as="sourcePoint" />
+            <mxPoint x="89.88999999999987" y="128.19999999999982" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-218" parent="xGBKgyB9riMk9t0wYe-T-211" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontStyle=1;fontSize=20;container=0;" value="Modbus RTU" vertex="1">
+          <mxGeometry height="30" width="140" x="110" y="139.19999999999982" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-220" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;strokeWidth=5;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="1569.52" y="1045" as="sourcePoint" />
+            <mxPoint x="1569.83" y="995" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-224" connectable="0" parent="1" style="group" value="" vertex="1">
+          <mxGeometry height="148" width="260.5899999999999" x="676" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-225" parent="xGBKgyB9riMk9t0wYe-T-224" style="text;whiteSpace=wrap;strokeColor=default;strokeWidth=3;fontSize=16;" value="Device: Outdoor Weather Station&#xa;Protocol: Modbus RTU&#xa;Slave ID: 1" vertex="1">
+          <mxGeometry height="70" width="238" x="2" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-226" parent="xGBKgyB9riMk9t0wYe-T-224" style="text;whiteSpace=wrap;html=1;fontStyle=5" value="&lt;span style=&quot;font-size: 16px;&quot;&gt;Weather Station&lt;/span&gt;" vertex="1">
+          <mxGeometry height="40" width="170" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-236" edge="1" parent="xGBKgyB9riMk9t0wYe-T-224" style="endArrow=classic;html=1;rounded=0;strokeWidth=5;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="114" y="110" as="sourcePoint" />
+            <mxPoint x="114" y="170" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-237" parent="xGBKgyB9riMk9t0wYe-T-224" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontStyle=1;fontSize=20;container=0;" value="Modbus RTU" vertex="1">
+          <mxGeometry height="30" width="140" x="120.58999999999992" y="118" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-228" connectable="0" parent="1" style="group" value="" vertex="1">
+          <mxGeometry height="50" width="191.51" x="518.49" y="438" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-229" parent="xGBKgyB9riMk9t0wYe-T-228" style="text;whiteSpace=wrap;strokeColor=none;strokeWidth=3;fontSize=16;" value="IP: 192.168.10.90" vertex="1">
+          <mxGeometry height="15.38" width="138.64" x="1.36" y="11.54" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-240" edge="1" parent="1" source="xGBKgyB9riMk9t0wYe-T-231" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.522;exitY=1.015;exitDx=0;exitDy=0;exitPerimeter=0;strokeWidth=5;endArrow=none;endFill=0;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="795" y="730" />
+              <mxPoint x="970" y="730" />
+            </Array>
+            <mxPoint x="970" y="900" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-231" parent="1" style="image;points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;image=img/lib/allied_telesis/media_converters/Media_Converter_Standalone.svg;" value="" vertex="1">
+          <mxGeometry height="117.2" width="143.66" x="720" y="369" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-227" connectable="0" parent="1" style="group" value="" vertex="1">
+          <mxGeometry height="59" width="210" x="490" y="374.5" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-230" connectable="0" parent="xGBKgyB9riMk9t0wYe-T-227" style="group" value="" vertex="1">
+          <mxGeometry height="20.495983935742967" width="210" y="29.61847389558232" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-232" parent="xGBKgyB9riMk9t0wYe-T-230" style="text;whiteSpace=wrap;html=1;fontStyle=5" value="&lt;span style=&quot;font-size: 16px;&quot;&gt;Rooftop RTU-TCP Gateway&lt;/span&gt;" vertex="1">
+          <mxGeometry height="4.845386273225286" width="210" y="15.650597662517681" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-241" parent="1" style="text;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;&lt;b&gt;Modbus TCP (Port 502)&lt;/b&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="40" width="94" x="822" y="502" as="geometry" />
+        </mxCell>
+        <mxCell id="xGBKgyB9riMk9t0wYe-T-242" parent="1" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;fontColor=#000000;darkOpacity=0.05;fillColor=#FFF9B2;strokeColor=none;fillStyle=solid;direction=west;gradientDirection=north;gradientColor=#FFF2A1;shadow=1;size=20;autosizeText=1;fontSize=6;align=left;" value="&lt;font style=&quot;font-size: 25px;&quot;&gt;&lt;br&gt;Modbus RTU devices are integrated via RTU-TCP gateways into the IP network.&lt;br&gt;Main meter uses Modbus TCP.&lt;br&gt;&lt;span&gt;Example data points: Voltage, Current, Power, Energy, Power factor&lt;/span&gt;&lt;br&gt;&lt;br&gt;Note:&lt;br&gt;Slave IDs must be unique per RS-485 segment.&lt;br&gt;Duplicate IDs are allowed across different gateways.&lt;br&gt;All devices are within subnet: 192.168.10.0/24&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/font&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="270" width="914" x="1860" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="qGoIQ5dKB_5ANKg26tRX-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontStyle=1;fontSize=20;" value="MQTT Protocol" vertex="1">
+          <mxGeometry height="30" width="284" x="2370" y="1280" as="geometry" />
+        </mxCell>
+        <mxCell id="qGoIQ5dKB_5ANKg26tRX-2" connectable="0" parent="1" style="group" value="" vertex="1">
+          <mxGeometry height="208" width="213" x="2310" y="1360" as="geometry" />
+        </mxCell>
+        <mxCell id="qGoIQ5dKB_5ANKg26tRX-3" parent="qGoIQ5dKB_5ANKg26tRX-2" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#7AA116;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=20;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.mqtt_protocol;" value="" vertex="1">
+          <mxGeometry height="208" width="208" as="geometry" />
+        </mxCell>
+        <mxCell id="qGoIQ5dKB_5ANKg26tRX-4" parent="qGoIQ5dKB_5ANKg26tRX-2" style="text;whiteSpace=wrap;html=1;fontSize=20;fontStyle=1" value="&lt;span&gt;MQTT Broker&lt;/span&gt;&lt;br&gt;&lt;span&gt;IP: 192.168.10.12&lt;/span&gt;&lt;br&gt;&lt;span&gt;Port: 1883&lt;/span&gt;" vertex="1">
+          <mxGeometry height="96" width="192" x="21" y="32" as="geometry" />
+        </mxCell>
+        <mxCell id="qGoIQ5dKB_5ANKg26tRX-5" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;strokeWidth=7;fontSize=13;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="2402.33" y="1270" as="sourcePoint" />
+            <mxPoint x="2402.33" y="1340" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
