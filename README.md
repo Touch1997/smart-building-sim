@@ -113,8 +113,6 @@ The system is designed to show how a commercial building can be monitored throug
 This project simulates how a commercial building behaves under different operating conditions.  
 Each scenario reflects realistic situations that typically occur in daily building operations.
 
----
-
 ### 1. Peak Day
 
 Represents a high-demand situation, typically during hot weather and full occupancy (e.g., weekday afternoons).
@@ -126,9 +124,6 @@ Represents a high-demand situation, typically during hot weather and full occupa
 - Energy accumulates quickly  
 
 This scenario shows how the system performs under maximum load.
-
----
-
 ### 2. Medium Day
 
 Represents normal operating conditions, such as a typical working day.
@@ -139,9 +134,6 @@ Represents normal operating conditions, such as a typical working day.
 - Power consumption is steady  
 
 This is used as a baseline for comparison.
-
----
-
 ### 3. Night
 
 Represents low-load conditions during nighttime when the building has minimal occupancy.
@@ -152,9 +144,6 @@ Represents low-load conditions during nighttime when the building has minimal oc
 - Power consumption is low  
 
 This scenario shows how the system behaves during off-hours.
-
----
-
 ### 4. Fault – Chiller 2
 
 Represents a fault condition where one chiller becomes unavailable (can occur at any time during operation).
@@ -165,8 +154,6 @@ Represents a fault condition where one chiller becomes unavailable (can occur at
 - Power distribution becomes unbalanced  
 
 This scenario demonstrates how the system reacts to abnormal conditions.
-
----
 
 All scenarios are generated dynamically in Node-RED and streamed via MQTT.  
 The backend processes and stores the data in PostgreSQL, allowing real-time visualization and historical analysis through the dashboard.
@@ -207,19 +194,34 @@ docker compose up -d
 docker compose down
 ```
 ---
+## Troubleshooting
+### Port 8000 Conflict (WSL / Windows)
+
+If the dashboard is not accessible at:
+http://localhost:8000/dashboard
+
+But works inside Docker, the issue may be caused by port conflicts with WSL (wslrelay.exe).
+
+Solution:
+- Try using:
+  http://127.0.0.1:8000/dashboard
+
+- Or check port usage:
+  netstat -ano | findstr :8000
+
+- If needed, restart WSL:
+  wsl --shutdown
+  then restart Docker Desktop
+---
 ## How to Use Node-RED
 
 Node-RED is used to control the simulation flow and scenario behavior.
-
----
 
 ### Open Node-RED
 
 After the system is running, open:
 
 - http://localhost:1880
-
----
 
 ### Available Scenarios
 
@@ -229,9 +231,6 @@ This project includes four scenarios:
 - Medium Day
 - Night
 - Fault Chiller 2
-
----
-
 ### Automatic Schedule
 
 The simulation is designed to run automatically every 5 minutes to simulate a full-day building operation.
@@ -244,9 +243,6 @@ The current setup is:
 - Fault Chiller 2: manual trigger only  
 
 This setup reflects a simple day-to-night operating pattern of a commercial building.
-
----
-
 ### Configure Inject Nodes (Optional)
 
 Each scenario is controlled by an inject node in Node-RED.  
@@ -262,8 +258,6 @@ To configure:
    - Repeat: `interval between times`  
    - Every: `5 minutes`  
 
----
-
 ### Recommended Schedule Setup
 
 #### Peak Day (Weekdays)
@@ -274,8 +268,6 @@ To configure:
 
 Represents high load during working hours.
 
----
-
 #### Medium Day (Weekend)
 
 - Every: 5 minutes  
@@ -283,9 +275,6 @@ Represents high load during working hours.
 - Days: Saturday – Sunday  
 
 Represents lower occupancy during weekends.
-
----
-
 #### Night (All Days)
 
 - Every: 5 minutes  
@@ -293,16 +282,12 @@ Represents lower occupancy during weekends.
 
 Represents low-load conditions during nighttime.
 
----
-
 #### Fault Chiller 2 (Manual Only)
 
 - No repeat schedule  
 - Trigger manually using the inject button  
 
 Used to simulate abnormal conditions at any time.
-
----
 
 ### Manual Testing
 
@@ -317,8 +302,6 @@ This is useful for:
 - testing a single scenario without waiting  
 - triggering Fault Chiller 2 manually  
 
----
-
 ### What to Expect
 
 When a scenario is triggered:
@@ -327,8 +310,6 @@ When a scenario is triggered:
 - Data is published via MQTT  
 - Backend stores data in PostgreSQL  
 - Dashboard updates in real-time  
-
----
 
 ### Notes
 
