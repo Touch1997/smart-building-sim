@@ -453,3 +453,6 @@ iot-assessment/
 ├── docker-compose.yml
 ├── mosquitto.conf
 └── README.md
+```
+## Presentation
+- [Project Presentation PDF](presentation/iot-building-presentation.pdf)
